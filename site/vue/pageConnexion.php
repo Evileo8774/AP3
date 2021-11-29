@@ -2,6 +2,7 @@
 <html lang="fr">
     <head>
         <title>Page de connexion</title>
+        <!-- lier la page aux fichiers css -->
         <link href="css/base.css?v=<?php echo time(); ?>" rel="stylesheet">
         <link href="css/connexion.css?v=<?php echo time(); ?>" rel="stylesheet">
     </head>
@@ -11,8 +12,8 @@
             <form action="vue/pageMenu.php" method="POST">
                 <div class="content">
                     <h1>CashCash connexion</h1>
-                    <input type="text" name="id" id="id" tabindex="1" placeholder="Identifiant">
-                    <input type="password" name="mdp" id="mdp" tabindex="2" placeholder="Mot de passe">
+                    <input type="text" name="id" id="id" tabindex="1" placeholder="Identifiant"> <!--required-->
+                    <input type="password" name="mdp" id="mdp" tabindex="2" placeholder="Mot de passe"> <!--required-->
                 </div>
                 <div class="login">
                     <input type="submit" tabindex="3" value="Connexion">

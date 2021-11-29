@@ -2,6 +2,7 @@
 <html lang="fr">
     <head>
         <title>Page menu</title>
+        <!-- lier la page aux fichiers css -->
         <link href="../css/base.css?v=<?php echo time(); ?>" rel="stylesheet">
         <link href="../css/nav.css?v=<?php echo time(); ?>" rel="stylesheet">
     </head>
