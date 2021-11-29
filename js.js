@@ -1,3 +1,2 @@
 alert("Hello World !");
-alert("ALERTE !");
-alert ("It's alive !!!");
+alert("Je victimise Léo !");
