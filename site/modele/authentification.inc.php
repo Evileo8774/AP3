@@ -8,11 +8,11 @@ function login($mailE, $mdpE) {
         var_dump($_SESSION);
     }
 
-    $util = getUtilisateurBymailE($mailE);
+    $util = getEmployeBymailE($mailE);
     $mdpBD = $util["mdpE"];
 
     if (trim($mdpBD) == trim(crypt($mdpE, $mdpBD))) {
-        // le mot de passe est celui de l'utilisateur dans la base de donnees
+        // le mot de passe est celui de l'employe dans la base de donnees
         $_SESSION["mailE"] = $mailE;
         $_SESSION["mdpE"] = $mdpBD;
     }
@@ -44,7 +44,7 @@ function isLoggedOn() {
     $ret = false;
 
     if (isset($_SESSION["mailE"])) {
-        $util = getUtilisateurBymailE($_SESSION["mailE"]);
+        $util = getEmployeBymailE($_SESSION["mailE"]);
         if ($util["mailE"] == $_SESSION["mailE"] && $util["mdpE"] == $_SESSION["mdpE"]
         ) {
             $ret = true;
