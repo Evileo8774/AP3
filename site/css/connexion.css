@@ -8,7 +8,7 @@ body{
 }
 
 .container{
-    width: 50vw;
+    width: 45vw;
     height: 50vh;
     background: #F3D191;
     display: flex;
@@ -21,7 +21,7 @@ body{
     background: #CFB17A;
 }
 
-.container .content{
+.container form .content{
     width: 100%;
     height: 75%;
 
@@ -31,7 +31,7 @@ body{
     align-items: center;
 }
 
-.container .login{
+.container form .login{
     width: 100%;
     height: 10%;
 
@@ -40,14 +40,21 @@ body{
     justify-content: center;
 }
 
-.container h1{
-    margin-bottom: 10vh;
+.container form h1{
+    margin-bottom: 15vh;
+    font-size: 150%;
 }
 
-.container .content form{
+.container form .content{
     display: flex;
     flex-direction: column;
     height: 10vh;
     justify-content: space-evenly;
     align-items: center;
+}
+
+.container form .content input{
+    width: 80%;
+    height: 4%;
+    font-size: 150%;
 }
