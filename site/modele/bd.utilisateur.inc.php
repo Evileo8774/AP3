@@ -2,12 +2,12 @@
 
 include_once "bd.inc.php";
 
-function getUtilisateurs() {
+function getEmployes() {
     $resultat = array();
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("select * from utilisateur");
+        $req = $cnx->prepare("select * from employe");
         $req->execute();
 
         $ligne = $req->fetch(PDO::FETCH_ASSOC);
@@ -22,13 +22,13 @@ function getUtilisateurs() {
     return $resultat;
 }
 
-function getUtilisateurByMailU($mailU) {
+function getEmployeByMailU($mailU) {
     $resultat = array();
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("select * from utilisateur where mailU=:mailU");
-        $req->bindValue(':mailU', $mailU, PDO::PARAM_STR);
+        $req = $cnx->prepare("select * from employe where mailU=:mailU");
+        $req->bindValue(':mailE', $mailE, PDO::PARAM_STR);
         $req->execute();
 
         $resultat = $req->fetch(PDO::FETCH_ASSOC);
@@ -45,11 +45,11 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
     // prog principal de test
     header('Content-Type:text/plain');
 
-    echo "getUtilisateurs() : \n";
-    print_r(getUtilisateurs());
+    echo "getEmployes() : \n";
+    print_r(getEmployes());
 
-    echo "getUtilisateurByMailU('mathieu.capliez@gmail.com') : \n";
-    print_r(getUtilisateurByMailU("mathieu.capliez@gmail.com"));
+    echo "getEmployesByMailU('mathieu.capliez@gmail.com') : \n";
+    print_r(getEmployeByMailU("mathieu.capliez@gmail.com"));
 
 }
 ?>
