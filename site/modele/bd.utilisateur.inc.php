@@ -22,12 +22,12 @@ function getEmployes() {
     return $resultat;
 }
 
-function getEmployeByMailU($mailU) {
+function getEmployeBymailE($mailE) {
     $resultat = array();
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("select * from employe where mailU=:mailU");
+        $req = $cnx->prepare("select * from employe where mailE=:mailE");
         $req->bindValue(':mailE', $mailE, PDO::PARAM_STR);
         $req->execute();
 
@@ -48,8 +48,8 @@ if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
     echo "getEmployes() : \n";
     print_r(getEmployes());
 
-    echo "getEmployesByMailU('mathieu.capliez@gmail.com') : \n";
-    print_r(getEmployeByMailU("mathieu.capliez@gmail.com"));
+    echo "getEmployesBymailE('mathieu.capliez@gmail.com') : \n";
+    print_r(getEmployeBymailE("mathieu.capliez@gmail.com"));
 
 }
 ?>
