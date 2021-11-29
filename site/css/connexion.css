@@ -47,21 +47,30 @@ body{
     justify-content: center;
 }
 
-.container form h1{
-    margin-bottom: 15vh;
+.container form .content h1{
+    margin-top: -5vh;
     font-size: 150%;
 }
 
 .container form .content{
     display: flex;
     flex-direction: column;
-    height: 10vh;
-    justify-content: space-evenly;
+    height: 85vh;
+    justify-content: center;
     align-items: center;
 }
 
-.container form .content input{
+.container form .content .inputs input{
     width: 80%;
-    height: 4%;
+    height: 8%;
     font-size: 150%;
+}
+
+.container form .content .inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 60%;
 }

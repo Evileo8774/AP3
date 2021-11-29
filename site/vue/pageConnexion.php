@@ -11,8 +11,10 @@
             <form action="vue/pageMenu.php" method="POST">
                 <div class="content">
                     <h1>CashCash connexion</h1>
-                    <input type="text" name="id" id="id" tabindex="1" placeholder="Identifiant">
-                    <input type="password" name="mdp" id="mdp" tabindex="2" placeholder="Mot de passe">
+                    <div class="inputs">
+                        <input type="text" name="id" id="id" tabindex="1" placeholder="Identifiant">
+                        <input type="password" name="mdp" id="mdp" tabindex="2" placeholder="Mot de passe">
+                    </div>
                 </div>
                 <div class="login">
                     <input type="submit" tabindex="3" value="Connexion">
