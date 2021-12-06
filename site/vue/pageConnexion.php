@@ -1,3 +1,6 @@
+<head>
+    <link href="../css/connexion.css?v=<?php echo time(); ?>" rel="stylesheet">
+</head>
 <body>
     <div class="container">
         <div class="tete"></div>
