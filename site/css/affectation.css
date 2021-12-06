@@ -83,8 +83,21 @@ nav{
     height: 5vh;
 }
 
+.btn_affect:hover{
+    cursor: default;
+}
+
 select:disabled, select, select[disabled]{
     border: 0;
     color: black;
     background: white;
+}
+
+.derouler img{
+    height: 50px;
+    transform: rotate(270deg);
+}
+
+.derouler img:hover{
+    cursor: pointer;
 }
