@@ -11,7 +11,7 @@
             $date->execute();
             $date = $date->fetchColumn();
 
-            $req = $cnx->prepare("select * from intervention where dateVisite > :date");
+            $req = $cnx->prepare("select * from intervention where dateVisite > :date OR etatAffectation = 0 OR etatAffectation = 1");
             $req->bindValue(':date', $date, PDO::PARAM_STR);
             $req->execute();
     

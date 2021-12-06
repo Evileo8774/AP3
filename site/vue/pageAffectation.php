@@ -27,17 +27,18 @@
         ?>
         <div class="affect">
             <div class="numAffectation">
-                fiche n°<?= $affectations[i]["num"] ?>
+                fiche n°<?= $affectations[$i]["num"] ?>
             </div>
             <div class="nomTechnicien">
-                <select>
+                <select <?php if($affectations[$i]["etatAffectation"] == 1){?> disabled <?php } ?>>
+                    <option></option>
                     <?php
-                        for($i = 0; $i<count($techniciens); $i++){
+                        for($j = 0; $j<count($techniciens); $j++){
                     ?>
                     <option>
-                    <?= $techniciens[i]["nom"] ?>
+                    <?= $techniciens[$j]["nom"] ?>
                     &nbsp;
-                    <?= $techniciens[i]["prenom"] ?>
+                    <?= $techniciens[$j]["prenom"] ?>
                     </option>
                     <?php
                         }
@@ -46,10 +47,10 @@
             </div>
             <div class="etatAffectation">
                 <?php
-                    if($affectations[i]["etatAffectation"] == 0){
-                        ?> <button class="btn_nonAffect">Non affectée</button> <?php
+                    if($affectations[$i]["etatAffectation"] == 0){
+                        ?> <button class="btn_affect">Non affectée</button> <?php
                     } else {
-                        ?> <button class="btn_affect" disabled>Affectée</button> <?php
+                        ?> <button class="btn_affect">Affectée</button> <?php
                     }
                 ?>
             </div>
