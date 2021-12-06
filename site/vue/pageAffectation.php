@@ -30,7 +30,7 @@
                 fiche n°<?= $affectations[$i]["num"] ?>
             </div>
             <div class="nomTechnicien">
-                <select <?php if($affectations[$i]["etatAffectation"] == 1){?> disabled <?php } ?>>
+                <select disabled>
                     <option></option>
                     <?php
                         for($j = 0; $j<count($techniciens); $j++){

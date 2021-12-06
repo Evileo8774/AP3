@@ -48,7 +48,7 @@ nav{
 }
 
 .btn_sort{
-    height: 80%;
+    height: 4vh;
     background: #F3D191;
     border: 0;
 }
@@ -81,4 +81,10 @@ nav{
     border: 0;
     background: #CFB17A;
     height: 5vh;
+}
+
+select:disabled, select, select[disabled]{
+    border: 0;
+    color: black;
+    background: white;
 }
