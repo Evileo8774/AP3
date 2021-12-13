@@ -39,6 +39,40 @@ function getEmployeBymailE($mailE) {
     return $resultat;
 }
 
+function verifyPassword($mail, $pwd){
+    $result = array();
+
+    try{
+        $cnx = connexionPDO();
+        $req = $cnx->prepare("select * from employe where matricule = :matricule and SHA2(mdp = :mdp, 256)");
+        $req->bindValue(':matricule', $mail, PDO::PARAM_STR);
+        $req->bindValue(':mdp', $pwd, PDO::PARAM_STR);
+        $req->execute();
+
+        $result = $req->fetch(PDO::FETCH_ASSOC);
+    } catch(PDOException $e){
+        print "Error : ".$e->getMessage();
+        die();
+    }
+    return $result;
+}
+
+function hashPassword($pwd){
+    $result = array();
+
+    try{
+        $cnx = connexionPDO();
+        $req = $cnx->prepare("select sha2(:mdp, 256) as 'mdp'");
+        $req->bindValue(':mdp', $pwd, PDO::PARAM_STR);
+        $req->execute();
+
+        $result = $req->fetch(PDO::FETCH_ASSOC);
+    } catch(PDOException $e){
+        print "Error : ".$e->getMessage();
+        die();
+    }
+    return $result;
+}
 
 
 if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {

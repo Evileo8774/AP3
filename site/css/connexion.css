@@ -45,6 +45,17 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+}
+
+.container form .login .bouton input{
+    width: 100%;
+    height: 100%;
+    font-size: 120%;
+}
+
+.container form .login .erreur{
+    color: red;
 }
 
 .container form .content h1{
@@ -61,7 +72,7 @@ body{
 
 .container form .content .inputs input{
     width: 80%;
-    height: 8%;
+    height: 20%;
     font-size: 150%;
 }
 
