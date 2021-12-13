@@ -25,7 +25,7 @@
         <?php
             for($i = 0; $i<count($affectations); $i++){
         ?>
-        <div class="affect">
+        <div class="affect" onclick="deployer();">
             <div class="numAffectation">
                 fiche n°<?= $affectations[$i]["num"] ?>
             </div>
@@ -50,16 +50,39 @@
             </div>
         </div>
         <?php
-            }
-            if($affectations[$i]["etatAffectation"] == 0){
+            if($affectations[$i]["etatAffectation"] == 0){  
         ?>
             <div class="hiddenForm">
-                <form method="post" action="./affectation.php">
-                    
+                <form method="post" action="./affectation.php" class="hiddenForm">
+                    <input type="date" name="dateAffectation" class="affectationForm"/>
+                    <input type="time" name="timeAffectation" class="affectationForm"/>
+                    <input type="text" name="detailAffectation" class="affectationForm" placeholder="Details de l'affectation" size="100"/>
+                    <select>
+                        <?php
+                            for($j = 0; $j < count($techniciens); $j++){
+                                ?> <option><?php echo $techniciens[$j]["prenom"].$techniciens[$j]["nom"]; ?></option> <?php
+                            }
+                        ?>
+                    </select>
+                    <select>
+                    <?php
+                            for($j = 0; $j < count($clients); $j++){
+                                ?> <option><?php echo $clients[$j]["raisonSociale"]; ?></option> <?php
+                            }
+                        ?>
+                    </select>
                 </form>
             </div>
         <?php
             }
+            }
         ?>
     </div>
 </body>
+
+<script type="text/javascript">
+
+    function deployer(){
+        
+    }
+</script>
