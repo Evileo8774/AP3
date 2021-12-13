@@ -8,8 +8,8 @@ body{
 }
 
 .container{
-    width: 45vw;
-    height: 50vh;
+    width: 55vw;
+    height: 70vh;
     background: #F3D191;
     display: flex;
     flex-direction: column;
