@@ -87,12 +87,6 @@ nav{
     cursor: default;
 }
 
-select:disabled, select, select[disabled]{
-    border: 0;
-    color: black;
-    background: white;
-}
-
 .derouler img{
     height: 50px;
     transform: rotate(270deg);
@@ -100,4 +94,14 @@ select:disabled, select, select[disabled]{
 
 .derouler img:hover{
     cursor: pointer;
+}
+
+.hiddenForm{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    justify-content: space-evenly;
+    background-color: #CFB17A;
+    height: 0;
+    transform: scale(0);
 }

@@ -7,7 +7,7 @@
 
     $affectations = affecter();
     $techniciens = getTechniciens();
-    
+    $clients = getClients();
 
 
     $titre = "affectation";
