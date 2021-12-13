@@ -30,20 +30,11 @@
                 fiche n°<?= $affectations[$i]["num"] ?>
             </div>
             <div class="nomTechnicien">
-                <select disabled>
-                    <option></option>
+                <div class="divAffect">
                     <?php
-                        for($j = 0; $j<count($techniciens); $j++){
+                        echo $affectations[$i]["matricule"];
                     ?>
-                    <option>
-                    <?= $techniciens[$j]["nom"] ?>
-                    &nbsp;
-                    <?= $techniciens[$j]["prenom"] ?>
-                    </option>
-                    <?php
-                        }
-                    ?>
-                </select>
+                </div>
             </div>
             <div class="etatAffectation">
                 <?php
@@ -58,6 +49,15 @@
                 <img src="../images/arrow.png" alt="arrow">
             </div>
         </div>
+        <?php
+            }
+            if($affectations[$i]["etatAffectation"] == 0){
+        ?>
+            <div class="hiddenForm">
+                <form method="post" action="./affectation.php">
+                    
+                </form>
+            </div>
         <?php
             }
         ?>
