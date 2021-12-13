@@ -14,8 +14,9 @@ if(isset($_POST['matricule']) && isset($_POST['mdp']))
     if($_POST['matricule'] !== "" && $_POST['mdp'] !== ""){  
         if($_POST['matricule'] == $username && $password == $passwordverif) // nom d'utilisateur et mot de passe correctes
         {
-           $_SESSION['username'] = $username;
-           header('Location: ../vue/pageMenu.php');
+            session_start();
+            $_SESSION['matricule'] = $username;
+            header('Location: ../vue/pageMenu.php');
         }
         else
         {
