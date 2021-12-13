@@ -7,6 +7,7 @@ function controleurPrincipal($action) {
     $lesActions["connexion"] = "connexion.php";
     $lesActions["deconnexion"] = "deconnexion.php";
     $lesActions["affectation"] = "affectation.php";
+    $lesActions["menu"] = "menu.php";
 
     if (array_key_exists($action, $lesActions)) {
         return $lesActions[$action];
