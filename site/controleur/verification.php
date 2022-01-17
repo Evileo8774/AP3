@@ -16,20 +16,20 @@ if(isset($_POST['matricule']) && isset($_POST['mdp']))
         {
             session_start();
             $_SESSION['matricule'] = $username;
-            header('Location: ../vue/pageMenu.php');
+            header('Location: ./?action=menu');
         }
         else
         {
-           header('Location: ../vue/pageConnexion.php?erreur=1'); // utilisateur ou mot de passe incorrect
+           header('Location: ./?action=connexion?erreur=1'); // utilisateur ou mot de passe incorrect
         }
     }
     else
     {
-       header('Location: ../vue/pageConnexion.php?erreur=2'); // utilisateur ou mot de passe vide
+       header('Location: ./?action=connexion?erreur=2'); // utilisateur ou mot de passe vide
     }
 }
 else
 {
-   header('Location: ../vue/pageConnexion.php');
+   header('Location: ./?action=connexion');
 }
 ?>
