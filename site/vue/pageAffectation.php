@@ -3,7 +3,9 @@
 ?>
 
 <head>
-    <link href="../css/affectation.css?v=<?php echo time(); ?>" rel="stylesheet">
+<style type="text/css">
+        @import url("css/affectation.css");
+    </style>
 </head>
 <body>
     <nav>

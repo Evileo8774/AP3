@@ -3,5 +3,7 @@
     <head>
         <title>Page de connexion</title>
         <!-- lier la page aux fichiers css -->
-        <link href="css/base.css?v=<?php echo time(); ?>" rel="stylesheet">
+        <style type="text/css">
+        @import url("css/base.css");
+    </style>
     </head>
