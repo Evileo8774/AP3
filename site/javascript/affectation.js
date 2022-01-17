@@ -21,7 +21,7 @@ $(document).ready(function(){
         } else {
             $(".hiddenForm:eq("+tmp+")").css({
                 transform: "scale(1)",
-                height: "auto"
+                height: "10px"
             });
             stateForms[tmp] = false;
         }
