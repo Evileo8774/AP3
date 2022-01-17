@@ -51,7 +51,7 @@
                 ?>
             </div>
             <div class="derouler">
-                <img src="../images/arrow.png" alt="arrow">
+                <img src="../images/arrow.png" alt="arrow" class="arrowDeploy">
             </div>
         </div>
         <?php
