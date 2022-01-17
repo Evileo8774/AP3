@@ -1,5 +1,7 @@
 <head>
-    <link href="../css/connexion.css?v=<?php echo time(); ?>" rel="stylesheet">
+    <style type="text/css">
+        @import url("css/connexion.css");
+    </style>
 </head>
 <body>
     <div class="container">
