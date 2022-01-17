@@ -6,7 +6,7 @@
 <body>
     <div class="container">
         <div class="tete"></div>
-        <form action="../controleur/verification.php" method="POST">
+        <form action="./?action=verification" method="post">
             <div class="content">
                 <h1>CashCash connexion</h1>
                 <div class="inputs">
