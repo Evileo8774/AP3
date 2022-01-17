@@ -8,9 +8,10 @@ $travail=GetEmploie();
 var_dump($travail);
 var_dump($travail['matricule']);
 
-    ($_SESSION['matricule'] != $travail['matricule']){  // nom d'utilisateur vérification
+    if ($_SESSION['matricule'] != $travail['matricule']){  // nom d'utilisateur vérification
         for($i = 0; $i<count($travail); $i++){
-            
+        
+        }
     }
 
 ?>
