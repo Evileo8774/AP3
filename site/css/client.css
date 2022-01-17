@@ -97,11 +97,14 @@ nav{
 }
 
 .hiddenForm{
-    display: flex;
-    flex-direction: row;
     width: 100vw;
     justify-content: space-evenly;
     background-color: #CFB17A;
-    height: 0;
-    transform: scale(0);
+}
+
+.nomClient{
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    
 }
