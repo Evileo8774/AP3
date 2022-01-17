@@ -1,8 +1,8 @@
-<h2>Formulaire de participation au point γ</h2>
+<h2>Formulaire de recherche</h2>
 <form action="#">
   <p><i>Complétez le formulaire. Les champs marqué par </i><em>*</em> sont <em>obligatoires</em></p>
   <fieldset>
-    <legend>Contact</legend>
+    <legend>Contact Client</legend>
       <label for="nom">Nom <em>*</em></label>
       //placeholder: indication grisée 
       //required: il faut renseigner le champs sinon la validation est bloquée
