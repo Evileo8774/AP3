@@ -4,7 +4,7 @@
 
 <head>
 <style type="text/css">
-        @import url("css/affectation.css");
+        @import url("../css/affectation.css");
     </style>
 </head>
 <body>
@@ -27,7 +27,7 @@
         <?php
             for($i = 0; $i<count($affectations); $i++){
         ?>
-        <div class="affect" onclick="deployer();">
+        <div class="affect" onclick="deployer(<?php $i ?>);">
             <div class="numAffectation">
                 fiche n°<?= $affectations[$i]["num"] ?>
             </div>
@@ -84,7 +84,7 @@
 
 <script type="text/javascript">
 
-    function deployer(){
-        
+    function deployer(i){
+        document.getElementByClassName("hiddenForm").style.transform = "scale(1)";
     }
 </script>
