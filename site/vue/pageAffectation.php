@@ -19,11 +19,13 @@
             <button class="btn_sort">Pas de tri</button>
             <button class="btn_sort">Non Affecté</button>
         </div>
-        <div class="iconeMenu">
-            <div class="trait"></div>
-            <div class="trait"></div>
-            <div class="trait"></div>
-        </div>
+        <a href="../index.php?action=menu">
+            <div class="iconeMenu" style="cursor:pointer;">
+                <div class="trait"></div>
+                <div class="trait"></div>
+                <div class="trait"></div>
+            </div>
+        </a>
     </nav>
 
     <div class="content">
@@ -76,6 +78,7 @@
                             }
                         ?>
                     </select>
+                    <input type="submit" value="affecter"/>
                 </form>
             </div>
         <?php
