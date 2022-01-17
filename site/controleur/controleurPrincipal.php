@@ -5,9 +5,10 @@ function controleurPrincipal($action) {
     $lesActions = array();
     $lesActions["defaut"] = "connexion.php";
     $lesActions["connexion"] = "connexion.php";
+    $lesActions["verification"] = "verification.php";
     $lesActions["deconnexion"] = "deconnexion.php";
     $lesActions["affectation"] = "affectation.php";
-    $lesActions["verification"] = "verification.php";
+    $lesActions["client"] = "client.php";
     $lesActions["menu"] = "menu.php";
 
 

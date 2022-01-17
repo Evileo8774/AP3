@@ -22,5 +22,6 @@ $travail=GetEmploie();
             include "$racine/vue/pied.html.php";
         }
     }
+    
 
 ?>
