@@ -8,7 +8,13 @@ function GetEmploie(){
     $cnx=connexionPDO();
     $req = $cnx -> prepare("select * from employe");
     $req->execute();
-    $resultat = $req->fetch(PDO::FETCH_ASSOC); 
+
+    $ligne = $req->fetch(PDO::FETCH_ASSOC);
+            while ($ligne) {
+                $result[] = $ligne;
+                $ligne = $req->fetch(PDO::FETCH_ASSOC);
+
+                $resultat = $ligne->fetch(PDO::FETCH_ASSOC); 
 
     } catch(PDOException $e){
         print("Erreur : ".$e->getMessage());
