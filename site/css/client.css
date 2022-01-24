@@ -20,31 +20,20 @@ nav{
     width: 4vh;
     height: 4vh;
     background-color: white;
+    border-radius: 5px;
     margin-right: 2vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
+}
+
+.material-icons{
+    transform: scale(1.2);
 }
 
 .iconeMenu:hover{
     cursor: pointer;
-}
-
-.iconeMenu .trait{
-    width: 80%;
-    height: 10%;
-    border-radius: 30%;
-    background: #CFB17A;
-}
-
-.trait:nth-child(1){
-    margin-bottom: 10%;
-}
-
-.trait:nth-child(3){
-    margin-top: 10%;
 }
 
 .btn_sort{
@@ -59,6 +48,7 @@ nav{
 
 .nomPage{
     margin-left: 2vw;
+    font-size: 45px;
 }
 
 .content{

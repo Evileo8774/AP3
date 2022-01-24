@@ -1,13 +1,13 @@
 <?php
-    include_once "../controleur/client.php";
+    include_once "$racine/controleur/client.php";
 ?>
 
 <head>
     <style type="text/css">
-        @import url("../css/client.css");
+        @import url("css/client.css");
     </style>
-
-    <script type="text/javascript" src="../javascript/jquery.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="javascript/jquery.js"></script>
     <!-- <script type="text/javascript" src="../javascript/client.js"></script> -->
 </head>
 <body>
@@ -15,9 +15,7 @@
         <p class="nomPage">Gestion client</p>
 
         <div class="iconeMenu">
-            <div class="trait"></div>
-            <div class="trait"></div>
-            <div class="trait"></div>
+            <span class="material-icons">home</span>
         </div>
     </nav>
 
@@ -30,7 +28,7 @@
                 Client n°<?= $clients[$i]["numClient"] ?>
             </div>
             <div class="derouler">
-                <img src="../images/arrow.png" alt="arrow" class="arrowDeploy">
+                <img src="images/arrow.png" alt="arrow" class="arrowDeploy">
             </div>
         </div>
         <div class="hiddenForm">
@@ -51,10 +49,9 @@
                         </div>
                     </div>
                 </div>
-                    <div class="adresse">
-                        <!-- Adresse : <?= $clients[$i]["adresse"] ?> -->
-                    <div class="map"><iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=<?=$clients[$i]["adresse"]?>&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">j'ai fais ça lol</a></iframe></div>
-                </div>
+                <div class="adresse">
+                    <!-- Adresse : <?= $clients[$i]["adresse"] ?> -->
+                <div class="map"><iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=<?=$clients[$i]["adresse"]?>&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">j'ai fais ça lol</a></iframe></div>
             </div>
         </div>
         <?php
