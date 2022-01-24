@@ -62,8 +62,8 @@
         <?php
             if($affectations[$i]["etatAffectation"] == 0){  
         ?>
-            <div class="hiddenForm">
-                <form method="post" action="./affectation.php" class="hiddenForm">
+            <div class="hidden">
+                <form method="post" action="./affectation.php" class="hidden">
                     <input type="date" name="dateAffectation" class="affectationForm"/>
                     <input type="time" name="timeAffectation" class="affectationForm"/>
                     <input type="text" name="detailAffectation" class="affectationForm" placeholder="Details de l'affectation" size="100"/>
@@ -85,8 +85,17 @@
                 </form>
             </div>
         <?php
-            }
-            }
+        } else{
+            ?>
+            <div class="hidden">
+                <div class="affectatationDisplay" id="aDate"><?php echo $affectations[$i]["dateVisite"] ?></div>
+                <div class="affectatationDisplay" id="aTime"><?php echo $affectations[$i]["heureVisite"] ?></div>
+                <div class="affectatationDisplay" id="aDetail"><?php echo $affectations[$i]["detail"] ?></div>
+                <div class="affectatationDisplay" id="aRaison"><?php echo $affectations[$i]["numClient"] ?></div>
+            </div>
+            <?php
+        }
+        }
         ?>
     </div>
 </body>
