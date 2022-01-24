@@ -12,15 +12,14 @@ $travail=GetTechnicien();
                 $tmp = true;
             }
         }
-        if(isset($tmp) && $tmp == true){
-            include "$racine/vue/entete.html.php";
-            include "$racine/vue/pageMenu.php";
-            include "$racine/vue/pied.html.php";
-        } else {
-            include "$racine/vue/entete.html.php";
-            include "$racine/vue/pageConnexion.php";
-            include "$racine/vue/pied.html.php";
-        }
+        include "$racine/vue/entete.html.php";
+        include "$racine/vue/pageMenu.php";
+        include "$racine/vue/pied.html.php";
+        
+    } else {
+        include "$racine/vue/entete.html.php";
+        include "$racine/vue/pageConnexion.php";
+        include "$racine/vue/pied.html.php";
     }
     
 ?>

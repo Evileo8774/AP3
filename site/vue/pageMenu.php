@@ -13,12 +13,33 @@
         <p class="userConnect"><?php echo $_SESSION['matricule']?></p>
     </nav>
     
-    <div class="content">
-        <button class="bouton" type="button" onclick="window.location.href = '?action=?'">Outil Statistique</button>
-        <button class="bouton" type="button" onclick="window.location.href = '?action=affectation'" >Affectation Visite</button>
-        <button class="bouton" type="button" onclick="window.location.href = '?action=client'">Gestion client</button>
-        <button class="bouton" type="button" onclick="window.location.href = '?action=?'" >Gestion Intervention</button>
-    </div>
+    
+
+    <?php
+        if(isset($tmp) && $tmp == true){
+            ?>
+            
+            <!-- code HTML du technicien -->
+            <div class="content">
+                <button class="bouton" type="button" onclick="window.location.href = '?action=client'">Gestion client</button>
+                <button class="bouton" type="button" onclick="window.location.href = '?action=?'" >Gestion Intervention</button>
+            </div>
+            
+            
+            <?php
+        } else {
+            ?>
+            
+            <!-- Code HTML du gestionnaire -->
+            
+            <div class="content">
+                <button class="bouton" type="button" onclick="window.location.href = '?action=?'">Outil Statistique</button>
+                <button class="bouton" type="button" onclick="window.location.href = '?action=affectation'" >Affectation Visite</button>
+            </div>
+            
+            <?php
+        }
+    ?>
     
 
 </body>
