@@ -1,20 +1,24 @@
+<?php
+    include_once "controleur/menu.php";
+?>
+
+<head>
+    <style type="text/css">
+        @import url("css/menu.css");
+    </style>
+</head>
 <body>
     <nav>
-        <ul>
-            <li>CashCash</li>
-            <li>Gestionnaire</li>
-        </ul>
+        <p class="nomPage">CashCash</p>
+        <p class="userConnect"><?php echo $_SESSION['matricule']?></p>
     </nav>
-    <h1>Page menu</h1>
     
-    <button class="Gestionnaire" type="button" href="outilStatistique.php"> Outil Statistique
-    </button>
-
-    <button class="Gestionnaire" type="button" href="affectationVisite.php" > Affectation Visite
-    </button>
-
-    <button class="Gestionnaire" type="button" href="gestionClient.php" > Gestion client
-    </button>
-
+    <div class="content">
+        <button class="bouton" type="button" onclick="window.location.href = '?action=?'">Outil Statistique</button>
+        <button class="bouton" type="button" onclick="window.location.href = '?action=affectation'" >Affectation Visite</button>
+        <button class="bouton" type="button" onclick="window.location.href = '?action=client'">Gestion client</button>
+        <button class="bouton" type="button" onclick="window.location.href = '?action=?'" >Gestion Intervention</button>
+    </div>
+    
 
 </body>

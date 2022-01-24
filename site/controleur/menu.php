@@ -3,7 +3,7 @@
 session_start();
 
 include_once "$racine/modele/menu.inc.php";
-$travail=GetEmploie();
+$travail=GetTechnicien();
 
     if(isset($_SESSION["matricule"])){  // nom d'utilisateur vérification
 
@@ -23,5 +23,4 @@ $travail=GetEmploie();
         }
     }
     
-
 ?>
