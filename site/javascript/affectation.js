@@ -1,9 +1,9 @@
 $(document).ready(function(){
 
-    stateForms = new Array($(".hiddenForm").length-1);
+    stateForms = new Array($(".hidden").length-1);
     for(i=0; i<stateForms.length; i++){
         stateForms[i] = true;
-        $(".hiddenForm:eq("+i+")").css({
+        $(".hidden:eq("+i+")").css({
             transform: "scale(0)",
             height: "0"
         });
@@ -13,7 +13,7 @@ $(document).ready(function(){
         tmp = $(this).index();
 
         if(stateForms[tmp] == false){
-            $(".hiddenForm:eq("+tmp+")").css({
+            $(".hidden:eq("+tmp+")").css({
                 transform: "scale(0)",
                 height: "0"
             });
@@ -22,7 +22,7 @@ $(document).ready(function(){
             });
             stateForms[tmp] = true;
         } else {
-            $(".hiddenForm:eq("+tmp+")").css({
+            $(".hidden:eq("+tmp+")").css({
                 transform: "scale(1)",
                 height: "auto"
             });
