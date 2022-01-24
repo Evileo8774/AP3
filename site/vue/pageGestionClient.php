@@ -8,7 +8,7 @@
     </style>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script type="text/javascript" src="javascript/jquery.js"></script>
-    <!-- <script type="text/javascript" src="../javascript/client.js"></script> -->
+    <script type="text/javascript" src="javascript/client.js"></script>
 </head>
 <body>
     <nav>
