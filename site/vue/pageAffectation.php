@@ -39,7 +39,10 @@
             <div class="nomTechnicien">
                 <div class="divAffect">
                     <?php
-                        echo $affectations[$i]["matricule"];
+                        if($affectations[$i]["etatAffectation"] == 1){
+                            echo $affectations[$i]["matricule"];
+                        }
+                        
                     ?>
                 </div>
             </div>

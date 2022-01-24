@@ -17,11 +17,17 @@ $(document).ready(function(){
                 transform: "scale(0)",
                 height: "0"
             });
+            $(this).css({
+                transform: "rotate(-90deg)"
+            });
             stateForms[tmp] = true;
         } else {
             $(".hiddenForm:eq("+tmp+")").css({
                 transform: "scale(1)",
-                height: "10px"
+                height: "auto"
+            });
+            $(this).css({
+                transform: "rotate(90deg)"
             });
             stateForms[tmp] = false;
         }
