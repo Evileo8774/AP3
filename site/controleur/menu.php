@@ -2,14 +2,19 @@
 
 session_start();
 
-include_once "$racine/modele/menu.inc.php";
+include_once "../modele/menu.inc.php";
 $travail=GetEmploie();
+$technicien = GetTechnicien();
 
     if(isset($_SESSION["matricule"])){  // nom d'utilisateur vérification
 
         for($i = 0; $i<count($travail); $i++){
             if($_SESSION["matricule"] == $travail[$i]["matricule"]){
                 $tmp = true;
+            }
+
+            if($_SESSION["matricule"] == $travail[$i]["matricule"]){
+                $tech = true;
             }
         }
         if(isset($tmp) && $tmp == true){
@@ -22,6 +27,7 @@ $travail=GetEmploie();
             include "$racine/vue/pied.html.php";
         }
     }
+
     
 
 ?>
