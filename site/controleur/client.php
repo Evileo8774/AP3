@@ -1,15 +1,14 @@
 <?php
 
-include_once "../modele/client.inc.php";
+include_once "$racine/modele/client.inc.php";
 
-    $affectations = affecter();
     $techniciens = getTechniciens();
     $clients = getClients();
 
 
     $titre = "client";
-    include "../vue/entete.html.php";
-    include "../vue/pageGestionClient.php";
-    include "../vue/pied.html.php";
+    include "$racine/vue/entete.html.php";
+    include "$racine/vue/pageGestionClient.php";
+    include "$racine/vue/pied.html.php";
 
 ?>

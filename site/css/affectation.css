@@ -96,12 +96,10 @@ nav{
     cursor: pointer;
 }
 
-.hiddenForm{
+.hidden{
     display: flex;
     flex-direction: row;
     width: 100vw;
     justify-content: space-evenly;
     background-color: #CFB17A;
-    height: 0;
-    transform: scale(0);
 }

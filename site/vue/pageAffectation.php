@@ -19,11 +19,13 @@
             <button class="btn_sort">Pas de tri</button>
             <button class="btn_sort">Non Affecté</button>
         </div>
-        <div class="iconeMenu">
-            <div class="trait"></div>
-            <div class="trait"></div>
-            <div class="trait"></div>
-        </div>
+        <a href="../index.php?action=menu">
+            <div class="iconeMenu" style="cursor:pointer;">
+                <div class="trait"></div>
+                <div class="trait"></div>
+                <div class="trait"></div>
+            </div>
+        </a>
     </nav>
 
     <div class="content">
@@ -37,7 +39,10 @@
             <div class="nomTechnicien">
                 <div class="divAffect">
                     <?php
-                        echo $affectations[$i]["matricule"];
+                        if($affectations[$i]["etatAffectation"] == 1){
+                            echo $affectations[$i]["matricule"];
+                        }
+                        
                     ?>
                 </div>
             </div>
@@ -57,8 +62,8 @@
         <?php
             if($affectations[$i]["etatAffectation"] == 0){  
         ?>
-            <div class="hiddenForm">
-                <form method="post" action="./affectation.php" class="hiddenForm">
+            <div class="hidden">
+                <form method="post" action="./affectation.php" class="hidden">
                     <input type="date" name="dateAffectation" class="affectationForm"/>
                     <input type="time" name="timeAffectation" class="affectationForm"/>
                     <input type="text" name="detailAffectation" class="affectationForm" placeholder="Details de l'affectation" size="100"/>
@@ -76,11 +81,21 @@
                             }
                         ?>
                     </select>
+                    <input type="submit" value="affecter"/>
                 </form>
             </div>
         <?php
-            }
-            }
+        } else{
+            ?>
+            <div class="hidden">
+                <div class="affectatationDisplay" id="aDate"><?php echo $affectations[$i]["dateVisite"] ?></div>
+                <div class="affectatationDisplay" id="aTime"><?php echo $affectations[$i]["heureVisite"] ?></div>
+                <div class="affectatationDisplay" id="aDetail"><?php echo $affectations[$i]["detail"] ?></div>
+                <div class="affectatationDisplay" id="aRaison"><?php echo $affectations[$i]["numClient"] ?></div>
+            </div>
+            <?php
+        }
+        }
         ?>
     </div>
 </body>

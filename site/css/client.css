@@ -20,31 +20,20 @@ nav{
     width: 4vh;
     height: 4vh;
     background-color: white;
+    border-radius: 5px;
     margin-right: 2vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
+}
+
+.material-icons{
+    transform: scale(1.2);
 }
 
 .iconeMenu:hover{
     cursor: pointer;
-}
-
-.iconeMenu .trait{
-    width: 80%;
-    height: 10%;
-    border-radius: 30%;
-    background: #CFB17A;
-}
-
-.trait:nth-child(1){
-    margin-bottom: 10%;
-}
-
-.trait:nth-child(3){
-    margin-top: 10%;
 }
 
 .btn_sort{
@@ -59,12 +48,14 @@ nav{
 
 .nomPage{
     margin-left: 2vw;
+    font-size: 45px;
 }
 
 .content{
     margin-top: 7%;
     display: flex;
     flex-direction: column;
+    font-size: 150%;
 }
 
 .client{
@@ -97,11 +88,48 @@ nav{
 }
 
 .hiddenForm{
-    display: flex;
-    flex-direction: row;
     width: 100vw;
     justify-content: space-evenly;
     background-color: #CFB17A;
-    height: 0;
-    transform: scale(0);
+}
+
+.fiche{
+    display: flex;
+    flex-direction: row;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.nomClient{
+    width: 100%;
+    height: 50%;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #CFB17A;
+}
+
+.infoClient{
+    width: 100%;
+    height: 50%;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #F3D191
+}
+
+.numClient, .telClient, .mailClient{
+    padding-bottom: 15px;
+}
+.adresse{
+    width: 60%;
+    background-color: #F3D191
+    
 }

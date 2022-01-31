@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 if ( $_SERVER["SCRIPT_FILENAME"] == __FILE__ ){
     $racine="..";
 }

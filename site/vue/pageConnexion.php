@@ -18,15 +18,6 @@
                 <div class="bouton">
                     <input type="submit" tabindex="3" value="Connexion">
                 </div>
-                <div class="erreur">
-                    <?php
-                    if(isset($_GET['erreur'])){
-                        $erreur = $_GET['erreur'];
-                        if($erreur == 1 || $erreur == 2)
-                            echo "<p>Utilisateur ou mot de passe incorrect</p>";
-                    }
-                    ?>
-                </div>
             </div>
         </form>
     </div>
