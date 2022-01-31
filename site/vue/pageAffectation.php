@@ -1,10 +1,10 @@
 <?php
-    include_once "../controleur/affectation.php";
+    include_once "$racine/controleur/affectation.php";
 ?>
 
 <head>
     <style type="text/css">
-        @import url("../css/affectation.css");
+        @import url("css/affectation.css");
     </style>
 
     <script type="text/javascript" src="../javascript/jquery.js"></script>
