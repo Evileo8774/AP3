@@ -1,5 +1,6 @@
 <?php
     include_once "$racine/controleur/affectation.php";
+    session_start();
 ?>
 
 <head>
@@ -56,7 +57,10 @@
                 ?>
             </div>
             <div class="derouler">
-                <a href="./?action=affichage" target="_blank">Lien</a>
+                <form method="post" action="./?action=affichage" target="_blank">
+                    <?php $_SESSION["id"] = "salut" ?>
+                    <input type="submit" value="soumettre">
+                </form>
             </div>
         </div>
         <?php } ?>
