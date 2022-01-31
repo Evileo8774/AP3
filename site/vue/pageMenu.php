@@ -10,7 +10,7 @@
 <body>
     <nav>
         <p class="nomPage">CashCash</p>
-        <p class="userConnect"><?php echo $_SESSION['matricule']?></p>
+        <p class="userConnect"><?php echo $username['prenom']." ".$username['nom'] ?></p>
     </nav>
     
     

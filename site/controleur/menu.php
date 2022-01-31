@@ -6,7 +6,7 @@ include_once "$racine/modele/menu.inc.php";
 $travail=GetTechnicien();
 
     if(isset($_SESSION["matricule"])){  // nom d'utilisateur vérification
-
+        $username = GetPrenom($_SESSION['matricule']);
         for($i = 0; $i<count($travail); $i++){
             if($_SESSION["matricule"] == $travail[$i]["matricule"]){
                 $tmp = true;
