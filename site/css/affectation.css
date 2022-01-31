@@ -86,20 +86,3 @@ nav{
 .btn_affect:hover{
     cursor: default;
 }
-
-.derouler img{
-    height: 50px;
-    transform: rotate(270deg);
-}
-
-.derouler img:hover{
-    cursor: pointer;
-}
-
-.hidden{
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-    justify-content: space-evenly;
-    background-color: #CFB17A;
-}

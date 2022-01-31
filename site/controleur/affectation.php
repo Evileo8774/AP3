@@ -1,9 +1,9 @@
 <?php
 
-    /*if ( $_SERVER["SCRIPT_FILENAME"] == __FILE__ ){
+    if ( $_SERVER["SCRIPT_FILENAME"] == __FILE__ ){
         $racine="..";
-    }*/
-    include_once "../modele/affectation.inc.php";
+    }
+    include_once "$racine/modele/affectation.inc.php";
 
     $affectations = affecter();
     $techniciens = getTechniciens();
@@ -11,9 +11,9 @@
 
 
     $titre = "affectation";
-    include "../vue/entete.html.php";
-    include "../vue/pageAffectation.php";
-    include "../vue/pied.html.php";
+    include "$racine/vue/entete.html.php";
+    include "$racine/vue/pageAffectation.php";
+    include "$racine/vue/pied.html.php";
 
 
 ?>

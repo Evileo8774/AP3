@@ -1,14 +1,14 @@
 <?php
-    include_once "../controleur/affectation.php";
+    include_once "$racine/controleur/affectation.php";
 ?>
 
 <head>
     <style type="text/css">
-        @import url("../css/affectation.css");
+        @import url("css/affectation.css");
     </style>
 
-    <script type="text/javascript" src="../javascript/jquery.js"></script>
-    <script type="text/javascript" src="../javascript/affectation.js"></script>
+    <script type="text/javascript" src="javascript/jquery.js"></script>
+    <script type="text/javascript" src="javascript/affectation.js"></script>
 </head>
 <body>
     <nav>
@@ -56,46 +56,9 @@
                 ?>
             </div>
             <div class="derouler">
-                <img src="../images/arrow.png" alt="arrow" class="arrowDeploy">
+                <a href="./?action=affichage" target="_blank">Lien</a>
             </div>
         </div>
-        <?php
-            if($affectations[$i]["etatAffectation"] == 0){  
-        ?>
-            <div class="hidden">
-                <form method="post" action="./affectation.php" class="hidden">
-                    <input type="date" name="dateAffectation" class="affectationForm"/>
-                    <input type="time" name="timeAffectation" class="affectationForm"/>
-                    <input type="text" name="detailAffectation" class="affectationForm" placeholder="Details de l'affectation" size="100"/>
-                    <select>
-                        <?php
-                            for($j = 0; $j < count($techniciens); $j++){
-                                ?> <option><?php echo $techniciens[$j]["prenom"].$techniciens[$j]["nom"]; ?></option> <?php
-                            }
-                        ?>
-                    </select>
-                    <select>
-                    <?php
-                            for($j = 0; $j < count($clients); $j++){
-                                ?> <option><?php echo $clients[$j]["raisonSociale"]; ?></option> <?php
-                            }
-                        ?>
-                    </select>
-                    <input type="submit" value="affecter"/>
-                </form>
-            </div>
-        <?php
-        } else{
-            ?>
-            <div class="hidden">
-                <div class="affectatationDisplay" id="aDate"><?php echo $affectations[$i]["dateVisite"] ?></div>
-                <div class="affectatationDisplay" id="aTime"><?php echo $affectations[$i]["heureVisite"] ?></div>
-                <div class="affectatationDisplay" id="aDetail"><?php echo $affectations[$i]["detail"] ?></div>
-                <div class="affectatationDisplay" id="aRaison"><?php echo $affectations[$i]["numClient"] ?></div>
-            </div>
-            <?php
-        }
-        }
-        ?>
+        <?php } ?>
     </div>
 </body>
