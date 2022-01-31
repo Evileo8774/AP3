@@ -11,6 +11,10 @@ $travail=GetTechnicien();
             if($_SESSION["matricule"] == $travail[$i]["matricule"]){
                 $tmp = true;
             }
+
+            if($_SESSION["matricule"] == $travail[$i]["matricule"]){
+                $tech = true;
+            }
         }
         include "$racine/vue/entete.html.php";
         include "$racine/vue/pageMenu.php";
@@ -21,5 +25,6 @@ $travail=GetTechnicien();
         include "$racine/vue/pageConnexion.php";
         include "$racine/vue/pied.html.php";
     }
+
     
 ?>

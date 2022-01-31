@@ -24,6 +24,7 @@
             <div class="content">
                 <button class="bouton" type="button" onclick="window.location.href = '?action=client'">Gestion client</button>
                 <button class="bouton" type="button" onclick="window.location.href = '?action=?'" >Gestion Intervention</button>
+                <button class="bouton" type="button" onclick="window.location.href = '?action=connexion'">Déconnexion</button>
             </div>
             
             
@@ -36,6 +37,7 @@
             <div class="content">
                 <button class="bouton" type="button" onclick="window.location.href = '?action=?'">Outil Statistique</button>
                 <button class="bouton" type="button" onclick="window.location.href = '?action=affectation'" >Affectation Visite</button>
+                <button class="bouton" type="button" onclick="window.location.href = '?action=connexion'">Déconnexion</button>
             </div>
             
             <?php
