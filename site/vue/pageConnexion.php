@@ -1,5 +1,5 @@
 <head>
-    <title>Page Connexion</title>
+    <title>Page connexion</title>
     <style type="text/css">
         @import url("css/connexion.css");
     </style>

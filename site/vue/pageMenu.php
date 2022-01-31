@@ -3,7 +3,7 @@
 ?>
 
 <head>
-    <title>Page Menu</title>
+    <title>Page menu</title>
     <style type="text/css">
         @import url("css/menu.css");
     </style>
