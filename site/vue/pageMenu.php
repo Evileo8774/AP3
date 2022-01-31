@@ -23,7 +23,7 @@
             <!-- code HTML du technicien -->
             <div class="boutons">
                 <button class="bouton" type="button" onclick="window.location.href = '?action=client'">Gestion client</button>
-                <button class="bouton" type="button" onclick="window.location.href = '?action=?'" >Gestion Intervention</button>
+                <button class="bouton" type="button" onclick="window.location.href = '?action=intervention'" >Gestion Intervention</button>
                 
             </div>
             <div class="deconnexion">

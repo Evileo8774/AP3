@@ -11,6 +11,7 @@ function controleurPrincipal($action) {
     $lesActions["client"] = "client.php";
     $lesActions["menu"] = "menu.php";
     $lesActions["affichage"] = "affichage.php";
+    $lesActions["intervention"] = "intervention.php";
 
 
     if (array_key_exists($action, $lesActions)) {
