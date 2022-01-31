@@ -1,6 +1,6 @@
 <?php
 // connexion à la base de données
-include_once "../modele/bd.utilisateur.inc.php";
+include_once "modele/bd.utilisateur.inc.php";
 
 if(isset($_POST['matricule']) && isset($_POST['mdp']))
 {      

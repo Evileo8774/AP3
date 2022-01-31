@@ -2,14 +2,8 @@
 
 session_start();
 
-<<<<<<< HEAD
-include_once "../modele/menu.inc.php";
-$travail=GetEmploie();
-$technicien = GetTechnicien();
-=======
 include_once "$racine/modele/menu.inc.php";
 $travail=GetTechnicien();
->>>>>>> f4da85c80e0d59128cc82ee7e5a1800e12e38188
 
     if(isset($_SESSION["matricule"])){  // nom d'utilisateur vérification
         $username = GetPrenom($_SESSION['matricule']);
