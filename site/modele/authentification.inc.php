@@ -52,6 +52,8 @@ function isLoggedOn() {
     }
     return $ret;
 }
+
+
 /*
 if ($_SERVER["SCRIPT_FILENAME"] == __FILE__) {
     // prog principal de test
