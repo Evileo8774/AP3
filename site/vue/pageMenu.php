@@ -3,7 +3,7 @@
 ?>
 
 <head>
-    <title>Page Menu</title>
+    <title>Page menu</title>
     <style type="text/css">
         @import url("css/menu.css");
     </style>
@@ -21,10 +21,13 @@
             ?>
             
             <!-- code HTML du technicien -->
-            <div class="content">
+            <div class="boutons">
                 <button class="bouton" type="button" onclick="window.location.href = '?action=client'">Gestion client</button>
-                <button class="bouton" type="button" onclick="window.location.href = '?action=?'" >Gestion Intervention</button>
-                <button class="bouton" type="button" onclick="window.location.href = '?action=connexion'">Déconnexion</button>
+                <button class="bouton" type="button" onclick="window.location.href = '?action=intervention'" >Gestion Intervention</button>
+                
+            </div>
+            <div class="deconnexion">
+                <button class="boutonDeco" type="button" onclick="window.location.href = '?action=connexion'">Déconnexion</button>
             </div>
             
             
@@ -34,10 +37,12 @@
             
             <!-- Code HTML du gestionnaire -->
             
-            <div class="content">
+            <div class="boutons">
                 <button class="bouton" type="button" onclick="window.location.href = '?action=?'">Outil Statistique</button>
                 <button class="bouton" type="button" onclick="window.location.href = '?action=affectation'" >Affectation Visite</button>
-                <button class="bouton" type="button" onclick="window.location.href = '?action=connexion'">Déconnexion</button>
+            </div>
+            <div class="deconnexion">
+                <button class="boutonDeco" type="button" onclick="window.location.href = '?action=connexion'">Déconnexion</button>
             </div>
             
             <?php

@@ -3,9 +3,11 @@
 ?>
 
 <head>
+    <title>Page gestion client</title>
     <style type="text/css">
         @import url("css/client.css");
     </style>
+    
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script type="text/javascript" src="javascript/jquery.js"></script>
     <script type="text/javascript" src="javascript/client.js"></script>
@@ -15,7 +17,9 @@
         <p class="nomPage">Gestion client</p>
 
         <div class="iconeMenu">
-            <span class="material-icons">home</span>
+            <a href="?action=menu" target="_self">
+                <span class="material-icons">home</span>
+            </a>    
         </div>
     </nav>
 

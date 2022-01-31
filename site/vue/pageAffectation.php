@@ -4,10 +4,12 @@
 ?>
 
 <head>
+    <title>Page affectation</title>
     <style type="text/css">
         @import url("css/affectation.css");
     </style>
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script type="text/javascript" src="javascript/jquery.js"></script>
     <script type="text/javascript" src="javascript/affectation.js"></script>
 </head>
@@ -20,13 +22,11 @@
             <button class="btn_sort">Pas de tri</button>
             <button class="btn_sort">Non Affecté</button>
         </div>
-        <a href="../index.php?action=menu">
-            <div class="iconeMenu" style="cursor:pointer;">
-                <div class="trait"></div>
-                <div class="trait"></div>
-                <div class="trait"></div>
-            </div>
-        </a>
+        <div class="iconeMenu">
+            <a href="?action=menu" target="_self">
+                <span class="material-icons">home</span>
+            </a>    
+        </div>
     </nav>
 
     <div class="content">

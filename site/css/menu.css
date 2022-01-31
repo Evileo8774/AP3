@@ -12,20 +12,46 @@ nav{
     justify-content: space-between;
 }
 
-.content{
+.boutons{
     margin-top: 7%;
+    margin-bottom: 7%;
     display: flex;
-    flex-direction: column;
-    font-size: 150%;
+    flex-direction: row;
+    height: 60vh;
 }
 
-.bouton:hover{
+.deconnexion{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5vh;
+}
+
+.bouton{
+    margin-left: 13vw;
+    width: 30%;
+    font-size: 200%;
+    border: none;
+    border-radius: 10px;
+    background-color: #F3D191;
+}
+
+.boutonDeco{
+    width: 10%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+    background-color: #F3D191;
+}
+
+.bouton:hover, .boutonDeco:hover{
     cursor: pointer;
+    background: #CFB17A;
 }
 
 .nomPage{
     margin-left: 2vw;
-    font-size: 45px;
+    font-size: 35px;
 }
 
 .userConnect{
