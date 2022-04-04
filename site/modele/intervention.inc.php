@@ -22,7 +22,7 @@
         return $resultat;
     }
 
-    function getEmployes() {
+    function getEmployesByName() {
         $resultat = array();
     
         try {
@@ -40,7 +40,6 @@
             die();
         }
         return $resultat;
-    }
 
     function getClients() {
         $resultat = array();
@@ -65,68 +64,100 @@
 
    
 
-        function getModif($array,$table,  ){
-        
-            $count = 0;
-    
+        function getModifIntervention($array, $numIntervention){
+          
+            
             try{
                 $cnx = connectionPDO();
     
                 //on ajoute 1 au compteur si une valeur est entrée
     
                 for($i = 0; $i < sizeof($array); $i++){
-                    if($array[$i] == "roleIntervenant"){
-                        $index = $i+1;
-                    }
                     $count++;
                 }
     
                 $count /= 2;
                 
 
-                param : numClient, dateVisite, matricule
+             
                 //en fonction du compteur on allonge la requête sql
                 
                 switch ($count) {
                     case 1:
-                        $sql = "UPDATE $table SET ".$array[0]." = :a WHERE mailIntervenant like :mail";
+                        $sql = "UPDATE intervention SET ".$array[0]." = :a WHERE num like :num";
                         $stmt = $cnx->prepare($sql);
-                        if($array[1] == $array[$index]) $stmt->bindValue(':a', $array[1], PDO::PARAM_INT);
-                        else $stmt->bindValue(':a', $array[1], PDO::PARAM_STR);
+                        $stmt->bindValue(':a', $array[1], PDO::PARAM_STR);
     
-                        $stmt->bindValue(':mail', $mailAncien, PDO::PARAM_STR);
+                        $stmt->bindValue(':num', $numIntervention, PDO::PARAM_STR);
                         $stmt->execute();
                         break;
                        
                     case 2:
-                        $sql = "UPDATE $table SET ".$array[0]." = :a WHERE mailIntervenant like :mail";
+                        $sql = "UPDATE $table SET ".$array[0]." = :a , ".$array[2]." = :b WHERE num like :num";
                         $stmt = $cnx->prepare($sql);
-                        if($array[1] == $array[$index]) $stmt->bindValue(':a', $array[1], PDO::PARAM_INT);
-                        else $stmt->bindValue(':a', $array[1], PDO::PARAM_STR);
+                        $stmt->bindValue(':a', $array[1], PDO::PARAM_STR);
+                        $stmt->bindValue(':b', $array[3], PDO::PARAM_STR);
     
-                        if($array[3] == $array[$index]) $stmt->bindValue(':b', $array[3], PDO::PARAM_INT);
-                        else $stmt->bindValue(':b', $array[3], PDO::PARAM_STR);
-    
-                        $stmt->bindValue(':mail', $mailAncien, PDO::PARAM_STR);
+                        $stmt->bindValue(':num', $numIntervention, PDO::PARAM_STR);
                         $stmt->execute();
                         break;
-                         
-                    case 3:
-                        $sql = "UPDATE $table SET ".$array[0]." = :a WHERE mailIntervenant like :mail";
-                        $stmt = $cnx->prepare($sql);
-                        if($array[1] == $array[$index]) $stmt->bindValue(':a', $array[1], PDO::PARAM_INT);
-                        else $stmt->bindValue(':a', $array[1], PDO::PARAM_STR);
-    
-                        if($array[3] == $array[$index]) $stmt->bindValue(':b', $array[3], PDO::PARAM_INT);
-                        else $stmt->bindValue(':b', $array[3], PDO::PARAM_STR);
-    
-                        if($array[5] == $array[$index]) $stmt->bindValue(':c', $array[5], PDO::PARAM_INT);
-                        else $stmt->bindValue(':c', $array[5], PDO::PARAM_STR);
-    
-                        
-                        $stmt->bindValue(':mail', $mailAncien, PDO::PARAM_STR);
-                        $stmt->execute();
-                        break; 
+                }
+                
+            } catch (PDOException $e) {
+                print "Erreur !: " . $e->getMessage();
+                die();
+            }
+        }
 
-    }
+
+        function getModifClient($array, $raisonSociale){
+              
+            try{
+                $cnx = connectionPDO();
+    
+                
+    
+                for($i = 0; $i < sizeof($array); $i++){
+                    $count++;
+                }
+    
+                $count /= 2;
+                
+                switch ($count) {
+                    case 1:
+                        $sql = "UPDATE intervention SET ".$array[0]." = :a WHERE num like :num";
+                        $stmt = $cnx->prepare($sql);
+                        $stmt->bindValue(':a', $array[1], PDO::PARAM_STR);
+    
+                        $stmt->bindValue(':num', $numIntervention, PDO::PARAM_STR);
+                        $stmt->execute();
+                        break;
+                       
+                    case 2:
+                        $sql = "UPDATE $table SET ".$array[0]." = :a , ".$array[2]." = :b WHERE num like :num";
+                        $stmt = $cnx->prepare($sql);
+                        $stmt->bindValue(':a', $array[1], PDO::PARAM_STR);
+                        $stmt->bindValue(':b', $array[3], PDO::PARAM_STR);
+    
+                        $stmt->bindValue(':num', $numIntervention, PDO::PARAM_STR);
+                        $stmt->execute();
+                        break;
+
+                    case 3:
+                        $sql = "UPDATE $table SET ".$array[0]." = :a , ".$array[2]." = :b ".$array[4]." = :c WHERE num like :num";
+                        $stmt = $cnx->prepare($sql);
+                        $stmt->bindValue(':a', $array[1], PDO::PARAM_STR);
+                        $stmt->bindValue(':b', $array[3], PDO::PARAM_STR);
+                        $stmt->bindValue(':c', $array[5], PDO::PARAM_STR);
+
+                        $stmt->bindValue(':num', $numIntervention, PDO::PARAM_STR);
+                        $stmt->execute();
+                        break;
+                }
+                
+            } catch (PDOException $e) {
+                print "Erreur !: " . $e->getMessage();
+                die();
+            }
+        }
 ?>
