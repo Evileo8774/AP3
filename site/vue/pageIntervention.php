@@ -16,6 +16,17 @@
     <nav>
         <p class="nomPage">Intervention</p>
 
+        <form>
+            <input type="date" id="date">
+            <select>
+                <?php 
+                for($i = 0; $i < sizeof($employe); $i++){
+                    ?><option><?php$employe?></option><?php 
+                }
+                ?>
+            </select>
+        </form>
+
         <div class="iconeMenu">
             <a href="?action=menu" target="_self">
                 <span class="material-icons">home</span>
