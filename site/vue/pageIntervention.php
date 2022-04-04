@@ -16,15 +16,16 @@
     <nav>
         <p class="nomPage">Intervention</p>
 
-        <form>
+        <form method="POST" action="">
             <input type="date" id="date">
             <select>
-                <?php 
+                <?php
                 for($i = 0; $i < sizeof($employe); $i++){
-                    ?><option><?php$employe?></option><?php 
+                    ?><option><?php echo $employe[$i]["nom"];?></option><?php 
                 }
                 ?>
             </select>
+            <input type="submit" value="Modifier">
         </form>
 
         <div class="iconeMenu">
@@ -61,6 +62,12 @@
                         </div>
                         <div class="mailClient">
                             Adresse mail : <?= $clients[$i]["email"] ?>
+                        </div>
+                        <div class="dateIntervention">
+                            Date Intervention : <?= $clients[$i]["dateVisite"] ?>
+                        </div>
+                        <div class="technicienAssigné">
+                           Matricule technicien : <?= $clients[$i]["matricule"] ?>
                         </div>
                         <div class ="bouton">
                             <input type ="button" name="Modifier">

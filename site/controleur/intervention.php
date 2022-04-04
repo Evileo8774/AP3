@@ -6,10 +6,12 @@ include_once "$racine/modele/intervention.inc.php";
     $employe = getEmployes();
     $clients = getClients();
 
-    $raisonSociale = $_GET["nomClient"];
-    $numIntervention = $_GET["numClient"];
+  
 
     if(isset($_GET["Modifier"]){
+
+        $raisonSociale = $_POST["nomClient"];
+        $numIntervention = $_POST["numClient"];
 
         if(isset($_POST["numClient"])){ 
             $numClient = $_POST["numClient"];

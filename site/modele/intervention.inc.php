@@ -93,7 +93,7 @@
                         break;
                        
                     case 2:
-                        $sql = "UPDATE $table SET ".$array[0]." = :a , ".$array[2]." = :b WHERE num like :num";
+                        $sql = "UPDATE intervention SET ".$array[0]." = :a , ".$array[2]." = :b WHERE num like :num";
                         $stmt = $cnx->prepare($sql);
                         $stmt->bindValue(':a', $array[1], PDO::PARAM_STR);
                         $stmt->bindValue(':b', $array[3], PDO::PARAM_STR);
@@ -125,32 +125,32 @@
                 
                 switch ($count) {
                     case 1:
-                        $sql = "UPDATE intervention SET ".$array[0]." = :a WHERE num like :num";
+                        $sql = "UPDATE client SET ".$array[0]." = :a WHERE num like :num";
                         $stmt = $cnx->prepare($sql);
                         $stmt->bindValue(':a', $array[1], PDO::PARAM_STR);
     
-                        $stmt->bindValue(':num', $numIntervention, PDO::PARAM_STR);
+                        $stmt->bindValue(':num', $raisonSociale, PDO::PARAM_STR);
                         $stmt->execute();
                         break;
                        
                     case 2:
-                        $sql = "UPDATE $table SET ".$array[0]." = :a , ".$array[2]." = :b WHERE num like :num";
+                        $sql = "UPDATE client SET ".$array[0]." = :a , ".$array[2]." = :b WHERE num like :num";
                         $stmt = $cnx->prepare($sql);
                         $stmt->bindValue(':a', $array[1], PDO::PARAM_STR);
                         $stmt->bindValue(':b', $array[3], PDO::PARAM_STR);
     
-                        $stmt->bindValue(':num', $numIntervention, PDO::PARAM_STR);
+                        $stmt->bindValue(':num', $raisonSociale, PDO::PARAM_STR);
                         $stmt->execute();
                         break;
 
                     case 3:
-                        $sql = "UPDATE $table SET ".$array[0]." = :a , ".$array[2]." = :b ".$array[4]." = :c WHERE num like :num";
+                        $sql = "UPDATE client SET ".$array[0]." = :a , ".$array[2]." = :b ".$array[4]." = :c WHERE num like :num";
                         $stmt = $cnx->prepare($sql);
                         $stmt->bindValue(':a', $array[1], PDO::PARAM_STR);
                         $stmt->bindValue(':b', $array[3], PDO::PARAM_STR);
                         $stmt->bindValue(':c', $array[5], PDO::PARAM_STR);
 
-                        $stmt->bindValue(':num', $numIntervention, PDO::PARAM_STR);
+                        $stmt->bindValue(':num', $raisonSociale, PDO::PARAM_STR);
                         $stmt->execute();
                         break;
                 }
