@@ -1,3 +1,3 @@
 <?php
-$root = dirname(__FILE__);
+    $root = dirname(__FILE__);
 ?>
