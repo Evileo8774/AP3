@@ -51,6 +51,9 @@
                         <div class="mailClient">
                             Adresse mail : <?= $clients[$i]["email"] ?>
                         </div>
+                        <div class ="bouton">
+                            <input type ="button" name="Modifier">
+                        </div>
                     </div>
                 </div>
                 <div class="adresse">
