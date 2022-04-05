@@ -8,7 +8,7 @@
         }
 
         if($matricule != "" && $pwd != ""){
-            $user = getUserByMail($matricule);
+            $user = getUserByMatricule($matricule);
             if($user != false){
                 $userPwd = $user["mdp"]; // fonctionne
                 $hash = hashPwd($pwd); 
@@ -17,13 +17,13 @@
                     $_SESSION['nom'] = $user["nom"];
                     $_SESSION['prenom'] = $user["prenom"];
                 } else {
-                    echo "<script>alert('Mauvais email ou mot de passe')</script>";
+                    return "Mauvais email ou mot de passe";
                 }
             } else {
-                echo "<script>alert('Mauvais email ou mot de passe')</script>";
+                return "Mauvais email ou mot de passe";
             }
         } else {
-            echo "<script>alert('Veuillez remplir les champs correctement')</script>";
+            return "Veuillez remplir les champs correctement";
         }
     }
 
@@ -34,7 +34,7 @@
         session_destroy();
     }
 
-    function getMailLoggedOn(){
+    function getUserMatricule(){
         if(isLoggedOn()){
             $ret = $_SESSION["matricule"];
         } else {
@@ -50,7 +50,7 @@
         $ret = false;
 
         if(isset($_SESSION["matricule"])){
-            $user = getUserByMail($_SESSION["matricule"]);
+            $user = getUserByMatricule($_SESSION["matricule"]);
             if($user != false && $user["matricule"] == $_SESSION["matricule"]){
                 $ret = true;
             }

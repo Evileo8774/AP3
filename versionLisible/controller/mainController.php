@@ -4,6 +4,8 @@
 
         $actions = array();
         $actions["default"] = "login.php";
+        $actions["login"] = "login.php";
+        $actions["home"] = "home.php";
 
         if (array_key_exists($action, $actions)) {
             return $actions[$action];

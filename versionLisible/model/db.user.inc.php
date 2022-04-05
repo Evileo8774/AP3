@@ -7,7 +7,7 @@
 
         try{
             $cnx = connectionPDO();
-            $req = $cnx->prepare("select * from intervenant");
+            $req = $cnx->prepare("select * from employe");
             $req->execute();
 
             $line = $req->fetch(PDO::FETCH_ASSOC);
@@ -22,12 +22,12 @@
         return $result;
     }
 
-    function getUserByMail($matricule){
+    function getUserByMatricule($matricule){
         $result = array();
 
         try{
             $cnx = connectionPDO();
-            $req = $cnx->prepare("select * from intervenant where mailIntervenant = ?");
+            $req = $cnx->prepare("select * from employe where matricule = ?");
             $req->execute([$matricule]);
 
             $result = $req->fetch(PDO::FETCH_ASSOC);
