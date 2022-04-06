@@ -1,3 +1,6 @@
+<head>
+
+</head>
 <body>
-    salut
+    
 </body>
