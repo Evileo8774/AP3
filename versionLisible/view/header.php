@@ -13,3 +13,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title><?php echo $title; ?></title>
 </head>
+<?php
+if(isset($_SESSION["matricule"])){
+    ?>
+    <body>
+        <nav>
+            <div class="homeButton">
+        
+            </div>
+            <div class="sortButton">
+            
+            </div>
+            <div class="employeeName">
+            
+            </div>
+        </nav>    
+    </body>
+    <?php
+}    
+?>
