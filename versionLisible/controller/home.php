@@ -7,7 +7,10 @@
         $racine="..";
     }
 
-    include_once "$root/model/home.inc.php";
+    include_once "$root/model/db.home.inc.php";
+
+
+    $verify = verifyTechnicien($_SESSION["matricule"]);
 
     
     $title = "Accueil";

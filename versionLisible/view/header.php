@@ -25,7 +25,11 @@ if(isset($_SESSION["matricule"])){
             
             </div>
             <div class="employeeName">
-            
+                <?php
+                    if(isset($_SESSION["nom"])){
+                        echo $_SESSION["nom"]." ".$_SESSION["prenom"];
+                    }
+                ?>
             </div>
         </nav>    
     </body>
