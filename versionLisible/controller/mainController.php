@@ -8,7 +8,7 @@
         $actions["home"] = "home.php";
         $actions["visite"] = "home.php";
         $actions["outil"] = "home.php";
-        $actions["client"] = "home.php";
+        $actions["client"] = "customer.php";
         $actions["intervention"] = "home.php";
 
         if (array_key_exists($action, $actions)) {
