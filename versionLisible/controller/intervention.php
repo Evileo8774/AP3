@@ -13,7 +13,6 @@
     $intervention = getInterventions($_SESSION["matricule"]);
 
     /*
-    $customers = getCustomers();
 
     if(!isset($_GET["client"]) && !isset($_POST["submit"]) && isset($_SESSION["i"])){
         unset($_SESSION["i"]);
