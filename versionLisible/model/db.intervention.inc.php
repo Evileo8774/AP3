@@ -7,7 +7,7 @@
     
         try {
             $pdo = connectionPDO();
-            $req = $pdo->prepare("SELECT client.raisonSociale, client.adresse, intervention.* from client, intervention where matricule = ? and intervention.numClient = client.numClient");
+            $req = $pdo->prepare("SELECT client.raisonSociale, client.adresse, intervention.*, CURRENT_DATE AS dateDuJour from client, intervention where matricule = ? and intervention.numClient = client.numClient");
             $req->execute([$m]);
     
             $line = $req->fetch(PDO::FETCH_ASSOC);

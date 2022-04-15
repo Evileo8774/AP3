@@ -1,3 +1,6 @@
+<?php
+    if(isset($_SESSION["i"])) unset($_SESSION["i"]);
+?>
 <head>
     <style type="text/css">
         @import url("css/root.css");

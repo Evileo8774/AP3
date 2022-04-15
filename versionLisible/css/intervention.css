@@ -47,8 +47,6 @@
     
     text-decoration: none;
     color: black;
-
-    margin-top: 15px;
     padding: 10px;
 
     display: flex;
@@ -128,6 +126,7 @@
 .interventionSheet:hover .button{
     transform: scale(1);
     height: auto;
+    margin-top: 15px;
     transition-duration: 0.5s;
 }
 

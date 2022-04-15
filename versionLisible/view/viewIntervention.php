@@ -24,7 +24,13 @@
                     <div class="interventionAdress">
                         Adresse du client : <strong><?= $intervention[$i]["adresse"] ?></strong>
                     </div>
-                    <a <?php echo "href='./?action=intervention&intervention=".$intervention[$i]["num"]."'"; ?> class="button"><div>Modifier les informations</div></a>
+                    <?php
+                        if($intervention[$i]["dateVisite"] <= $intervention[$i]["dateDuJour"]){
+                    ?>
+                    <a <?php echo "href='./?action=intervention&intervention=".$intervention[$i]["num"]."'"; ?> class="button"><div>Intervention effectuée</div></a>
+                    <?php
+                        }
+                    ?>
                 </div>
                 <div class="interventionAdressMap">
                     <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=<?=$intervention[$i]["adresse"]?>&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
