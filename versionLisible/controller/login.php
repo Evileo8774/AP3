@@ -9,6 +9,10 @@
 
     include_once "$root/model/auth.inc.php";
 
+    if(isset($_SESSION["matricule"])){
+        header("Refresh:0; url=?action=home");
+    }
+
     if(isset($_POST["matricule"])){
         $matricule = $_POST["matricule"];
         $mdp = $_POST["mdp"];

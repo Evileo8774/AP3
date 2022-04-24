@@ -12,6 +12,29 @@
 
     $intervention = getInterventions($_SESSION["matricule"]);
 
+    if(!isset($_GET["intervention"]) && !isset($_POST["submit"]) && isset($_SESSION["i"])){
+        unset($_SESSION["i"]);
+    }
+
+    if(isset($_GET["modif"])){
+        $_SESSION["i"] = ($_GET["intervention"] - 1);
+        if($_GET["modif"] == "false"){
+            interventionFinie(($_SESSION["i"] + 1));
+            header("Refresh:0; url=?action=intervention");
+        }
+    }
+
+    if(isset($_POST["submit"])){
+        echo "<script>alert('estoy aqui')</script>";
+        $data = array();
+        array_push($data, "dateVisite", $_POST["date"]);
+        array_push($data, "heureVisite", $_POST["heure"]);
+        for($i = 0; $i < sizeof($data); $i += 2){
+            updateIntervention($data[$i], $data[$i+1], ($_SESSION["i"] + 1));
+        }
+        header("Refresh:0; url=?action=intervention");
+    }
+
     /*
 
     if(!isset($_GET["client"]) && !isset($_POST["submit"]) && isset($_SESSION["i"])){

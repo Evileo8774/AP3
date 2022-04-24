@@ -27,7 +27,8 @@
                     <?php
                         if($intervention[$i]["dateVisite"] <= $intervention[$i]["dateDuJour"]){
                     ?>
-                    <a <?php echo "href='./?action=intervention&intervention=".$intervention[$i]["num"]."'"; ?> class="button"><div>Intervention effectuée</div></a>
+                    <a <?php echo "href='./?action=intervention&intervention=".$intervention[$i]["num"]."&modif=false'"; ?> class="button"><div>Intervention effectuée</div></a>
+                    <a <?php echo "href='./?action=intervention&intervention=".$intervention[$i]["num"]."&modif=true'"; ?> class="button"><div>Modifier l'intervention</div></a>
                     <?php
                         }
                     ?>
@@ -37,41 +38,23 @@
                 </div>
             </div>
             <?php
-            }/*
-            if(isset($_SESSION["i"])){
+            }
+            if(isset($_SESSION["i"]) && isset($_GET["modif"]) && $_GET["modif"] == "true"){
                 ?>
-                <form class="modifyCustomer" method="post" action="./?action=client">
+                <form class="modifyIntervention" method="post" action="./?action=intervention">
                     <div>
-                        Informations du client
+                        Informations
                     </div>
                     <span>
-                        Nom : <input type="text" name="name" class="inputs" <?php echo "value='".$customers[$_SESSION["i"]]["raisonSociale"]."'"; ?> required/>
+                        Date : <input type="date" name="date" class="inputs" <?php echo "value='".$intervention[$_SESSION["i"]]["dateVisite"]."'"; ?> required/>
                     </span>
                     <span>
-                        siren : <input type="text" name="siren" class="inputs" <?php echo "value='".$customers[$_SESSION["i"]]["siren"]."'"; ?> required/>
-                    </span>
-                    <span>
-                        code ape : <input type="text" name="ape" class="inputs" <?php echo "value='".$customers[$_SESSION["i"]]["codeApe"]."'"; ?> required/>
-                    </span>
-                    <span>
-                        adresse : <input type="text" name="adresse" class="inputs" <?php echo "value='".$customers[$_SESSION["i"]]["adresse"]."'"; ?> required/>
-                    </span>
-                    <span>
-                        téléphone : <input type="text" name="tel" class="inputs" <?php echo "value='".$customers[$_SESSION["i"]]["tel"]."'"; ?> required/>
-                    </span>
-                    <span>
-                        courriel : <input type="email" name="mail" class="inputs" <?php echo "value='".$customers[$_SESSION["i"]]["email"]."'"; ?> required/>
-                    </span>
-                    <span>
-                        durée de déplacement : <input type="time" name="time" class="inputs" <?php echo "value='".$customers[$_SESSION["i"]]["dureeDeplacement"]."'"; ?> required/>
-                    </span>
-                    <span>
-                        distance en KM : <input type="number" name="dist" class="inputs" <?php echo "value='".$customers[$_SESSION["i"]]["distanceKM"]."'"; ?> required/>
+                        Heure : <input type="time" name="heure" class="inputs" <?php echo "value='".$intervention[$_SESSION["i"]]["heureVisite"]."'"; ?> required/>
                     </span>
                     <input type="submit" name="submit" class="submit" value="Confirmer les changements"/>
                 </form>
                 <?php
-            }*/
+            }
         ?>
     </div>
 </body>

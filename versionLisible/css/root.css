@@ -18,13 +18,22 @@ nav{
     box-shadow: 0px 0px 25px #D2F1FF;
 }
 
-.homeButton{
+.homeButton, .homeButton a{
     width: 10%;
     height: 100%;
     
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
+}
+
+.homeIcon{
+    height: 70%;
+    width: auto;
+}
+
+.homeIcon:hover{
+    cursor: pointer;
 }
 
 .sortButton{

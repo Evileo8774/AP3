@@ -19,7 +19,9 @@ if(isset($_SESSION["matricule"])){
     <body>
         <nav>
             <div class="homeButton">
-        
+                <a href="./?action=home">
+                    <img src="data/home.png" class="homeIcon"/>
+                </a>
             </div>
             <div class="sortButton">
             
