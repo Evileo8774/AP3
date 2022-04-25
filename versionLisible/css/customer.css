@@ -1,0 +1,153 @@
+.pageContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 3%;
+}
+
+.customerSheet{
+    width: 80%;
+    height: 200px;
+
+    background-color: #D2F1FF;
+    box-shadow: 0px 0px 15px #D2F1FF;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: 150%;
+
+    margin-top: 50px;
+}
+
+.customerData{
+    height: 200px;
+
+    margin-left: 10%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.customerAdressMap{
+    width: 500px;
+    height: 200px;
+}
+
+.button{
+
+    width: 70%;
+
+    background-color: #75D4FF;
+    box-shadow: 0px 0px 0px #75D4FF;
+    
+    text-decoration: none;
+    color: black;
+
+    margin-top: 15px;
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 0;
+    transform: scale(0);
+}
+
+.modifyCustomer{
+    position: absolute;
+
+    /*margin-top: 10%;*/
+
+    z-index: 100;
+
+    width: 60%;
+    height: 700px;
+    
+    background-color: #75D4FF;
+    box-shadow: 0px 0px 30px #75D4FF;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.modifyCustomer div, .modifyCustomer span{
+    font-size: 200%;
+}
+
+.inputs{
+    width: 400px;
+    height: 40px;
+
+    font-size: 80%;
+}
+
+.submit{
+
+    width: 30%;
+
+    background-color: #D2F1FF;
+    box-shadow: 0px 0px 0px #D2F1FF;
+    
+    text-decoration: none;
+    color: black;
+
+    margin-top: 30px;
+    padding: 10px;
+
+    border: 0;
+
+    font-size: 200%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* HOVER events */  
+
+.customerSheet:hover{
+    height: 400px;
+    transition-duration: 0.5s;
+}
+
+.customerSheet:hover .customerAdressMap{
+    width: 800px;
+    height: 400px;
+    transition-duration: 0.5s;
+}
+
+.customerSheet:hover .button{
+    transform: scale(1);
+    height: auto;
+    transition-duration: 0.5s;
+}
+
+.button:hover{
+    color: white;
+    box-shadow: 0px 0px 15px #75D4FF;
+    transition-duration: 0.5s;
+}
+
+.submit:hover{
+    box-shadow: 0px 0px 15px #D2F1FF;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.customerSheet:not(:hover), 
+.customerSheet:not(:hover) .customerAdressMap,
+.customerSheet:not(:hover) .button,
+.customerSheet:not(:hover) .submit,
+.submit:not(:hover),
+.button:not(:hover){
+    transition-duration: 0.5s;
+}
