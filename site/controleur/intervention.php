@@ -8,7 +8,7 @@ include_once "$racine/modele/intervention.inc.php";
 
   
 
-    if(isset($_GET["Modifier"]){
+    if(isset($_GET["Modifier"])){
 
         $raisonSociale = $_POST["nomClient"];
         $numIntervention = $_POST["numClient"];
