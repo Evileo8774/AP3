@@ -19,9 +19,22 @@ if(isset($_SESSION["matricule"])){
     <body>
         <nav>
             <div class="homeButton">
-                <a href="./?action=home">
-                    <img src="data/home.png" class="homeIcon"/>
-                </a>
+                <?php
+                    if(isset($verify)){
+                        ?>
+                        <a href="./?action=logout">
+                            Se déconnecter
+                        </a>
+                        <?php
+                    } else {
+                        ?>
+                        <a href="./?action=home">
+                            <img src="data/home.png" class="homeIcon"/>
+                        </a>
+                        <?php
+                    }
+                ?>
+                
             </div>
             <div class="sortButton">
             
