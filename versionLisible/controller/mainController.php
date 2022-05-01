@@ -12,7 +12,7 @@
         $actions["intervention"] = "intervention.php";
         $actions["logout"] = "logout.php";
 
-        if (array_key_exists($action, $actions)) {
+        if(array_key_exists($action, $actions)) {
             return $actions[$action];
         } else {
             return $actions["default"];

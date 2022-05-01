@@ -12,25 +12,29 @@
 
     $intervention = getInterventions($_SESSION["matricule"]);
 
-    if(!isset($_GET["intervention"]) && !isset($_POST["submit"]) && isset($_SESSION["i"])){
+    if(!isset($_GET["intervention"]) && !isset($_POST["submit"]) && isset($_SESSION["i"]) && !isset($_POST["submitEnd"])){
         unset($_SESSION["i"]);
     }
 
     if(isset($_GET["modif"])){
-        $_SESSION["i"] = ($_GET["intervention"] - 1);
-        if($_GET["modif"] == "false"){
-            interventionFinie(($_SESSION["i"] + 1));
-            header("Refresh:0; url=?action=intervention");
-        }
+        $interventionIndex = getInterventionById($_GET["intervention"]);
+        $_SESSION["i"] = $interventionIndex["num"];
+    }
+
+    if(isset($_POST["submitEnd"])){
+        var_dump($_SESSION);
+        $materiel = getMateriel($_SESSION["i"]);
+        controler($_POST["commentaire"], $_POST["temps"], $_SESSION["i"], $materiel["numSerie"]);
+        interventionFinie($_SESSION["i"]);
+        header("Refresh:0; url=?action=intervention");
     }
 
     if(isset($_POST["submit"])){
-        echo "<script>alert('estoy aqui')</script>";
         $data = array();
         array_push($data, "dateVisite", $_POST["date"]);
         array_push($data, "heureVisite", $_POST["heure"]);
         for($i = 0; $i < sizeof($data); $i += 2){
-            updateIntervention($data[$i], $data[$i+1], ($_SESSION["i"] + 1));
+            updateIntervention($data[$i], $data[$i+1], $_SESSION["i"]);
         }
         header("Refresh:0; url=?action=intervention");
     }

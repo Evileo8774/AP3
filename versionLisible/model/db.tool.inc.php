@@ -23,7 +23,7 @@
     
         try {
             $pdo = connectionPDO();
-            $req = $pdo->prepare("SELECT COUNT(num) AS 'nb' FROM intervention WHERE dateVisite BETWEEN ? AND ?");
+            $req = $pdo->prepare("SELECT COUNT(num) AS 'nb' FROM intervention WHERE intervention.faite='oui' AND dateVisite BETWEEN ? AND ?");
             $req->execute([$date, $datePlus1["dateadded"]]);
     
             $result = $req->fetch(PDO::FETCH_ASSOC);
@@ -36,10 +36,9 @@
 
     function getKMParcourus($date, $datePlus1){
         $result = array();
-    
         try {
             $pdo = connectionPDO();
-            $req = $pdo->prepare("SELECT SUM(distanceKM) AS 'km' FROM intervention, client WHERE client.numClient = intervention.numClient AND dateVisite BETWEEN ? AND ?");
+            $req = $pdo->prepare("SELECT SUM(distanceKM) AS 'km' FROM intervention, client WHERE intervention.faite='oui' AND client.numClient = intervention.numClient AND dateVisite BETWEEN ? AND ?");
             $req->execute([$date, $datePlus1["dateadded"]]);
     
             $result = $req->fetch(PDO::FETCH_ASSOC);
@@ -55,7 +54,7 @@
     
         try {
             $pdo = connectionPDO();
-            $req = $pdo->prepare("SELECT SUM(tempsPasse) AS 'tps' FROM controler, intervention WHERE controler.num = intervention.num AND dateVisite BETWEEN ? AND ?");
+            $req = $pdo->prepare("SELECT SUM(tempsPasse) AS 'tps' FROM controler, intervention WHERE faite='oui' AND controler.num = intervention.num AND dateVisite BETWEEN ? AND ?");
             $req->execute([$date, $datePlus1["dateadded"]]);
     
             $result = $req->fetch(PDO::FETCH_ASSOC);

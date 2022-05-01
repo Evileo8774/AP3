@@ -10,8 +10,8 @@
         if($matricule != "" && $pwd != ""){
             $user = getUserByMatricule($matricule);
             if($user != false){
-                $userPwd = $user["mdp"]; // fonctionne
-                $hash = hashPwd($pwd); 
+                $userPwd = $user["mdp"];
+                $hash = hashPwd($pwd);
                 if($hash["pwd"] == $userPwd){
                     $_SESSION['matricule'] = $user["matricule"];
                     $_SESSION['nom'] = $user["nom"];

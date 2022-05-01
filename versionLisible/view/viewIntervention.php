@@ -24,14 +24,9 @@
                     <div class="interventionAdress">
                         Adresse du client : <strong><?= $intervention[$i]["adresse"] ?></strong>
                     </div>
-                    <?php
-                        if($intervention[$i]["dateVisite"] <= $intervention[$i]["dateDuJour"]){
-                    ?>
                     <a <?php echo "href='./?action=intervention&intervention=".$intervention[$i]["num"]."&modif=false'"; ?> class="button"><div>Intervention effectuée</div></a>
                     <a <?php echo "href='./?action=intervention&intervention=".$intervention[$i]["num"]."&modif=true'"; ?> class="button"><div>Modifier l'intervention</div></a>
-                    <?php
-                        }
-                    ?>
+                    
                 </div>
                 <div class="interventionAdressMap">
                     <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=<?=$intervention[$i]["adresse"]?>&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
@@ -52,6 +47,21 @@
                         Heure : <input type="time" name="heure" class="inputs" <?php echo "value='".$intervention[$_SESSION["i"]]["heureVisite"]."'"; ?> required/>
                     </span>
                     <input type="submit" name="submit" class="submit" value="Confirmer les changements"/>
+                </form>
+                <?php
+            } else if(isset($_SESSION["i"]) && isset($_GET["modif"]) && $_GET["modif"] == "false"){
+                ?>
+                <form class="modifyIntervention" method="post" action="./?action=intervention">
+                    <div>
+                        Informations
+                    </div>
+                    <span>
+                        Commentaire : <input type="text" name="commentaire" class="inputs" required/>
+                    </span>
+                    <span>
+                        Temps passé : <input type="time" name="temps" class="inputs" required/>
+                    </span>
+                    <input type="submit" name="submitEnd" class="submit" value="Intervention terminée"/>
                 </form>
                 <?php
             }

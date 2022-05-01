@@ -26,7 +26,7 @@
             </div>
             <div class="amountOfTime quarter">
                 <h3>Durée de contrôle du matériel</h3>
-                <?php echo substr($temps["tps"], 0, 2)." minutes"; ?>
+                <?php echo substr($temps["tps"], 0, -2)." minutes"; ?>
             </div>
             <?php
             }
