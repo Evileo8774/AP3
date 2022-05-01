@@ -37,7 +37,16 @@ if(isset($_SESSION["matricule"])){
                 
             </div>
             <div class="sortButton">
-            
+                <?php
+                    if(isset($customers)){
+                        ?>
+                        <form method="post" action="./?action=client">
+                            <input type="text" name="customerSort" placeholder="Chercher un client" list="customers"/>
+                            <input type="submit" name="submitSort" value="Chercher"/>
+                        </form>
+                        <?php
+                    }
+                ?>
             </div>
             <div class="employeeName">
                 <?php
@@ -49,5 +58,12 @@ if(isset($_SESSION["matricule"])){
         </nav>    
     </body>
     <?php
-}    
+}
+if(isset($customers)){
+    echo "<datalist id='customers'>";
+    for($i = 0; $i < sizeof($customers); $i++){
+        echo "<option value='".$customers[$i]["numClient"]."'>".$customers[$i]["raisonSociale"]."</option>";
+    }
+    echo "</datalist>";
+}
 ?>

@@ -33,4 +33,44 @@
         }
     }
 
+    function getCustomerById($id){
+        $result = array();
+    
+        try {
+            $pdo = connectionPDO();
+            $req = $pdo->prepare("SELECT * FROM client WHERE numClient = ?");
+            $req->execute([$id]);
+    
+            $line = $req->fetch(PDO::FETCH_ASSOC);
+            while ($line) {
+                $result[] = $line;
+                $line = $req->fetch(PDO::FETCH_ASSOC);
+            }
+        } catch (PDOException $e) {
+            print "Error : " . $e->getMessage();
+            die();
+        }
+        return $result;
+    }
+
+    function getCustomersSort($id){
+        $result = array();
+    
+        try {
+            $pdo = connectionPDO();
+            $req = $pdo->prepare("SELECT * FROM client WHERE numClient = ?");
+            $req->execute([$id]);
+    
+            $line = $req->fetch(PDO::FETCH_ASSOC);
+            while ($line) {
+                $result[] = $line;
+                $line = $req->fetch(PDO::FETCH_ASSOC);
+            }
+        } catch (PDOException $e) {
+            print "Error : " . $e->getMessage();
+            die();
+        }
+        return $result;
+    }
+
 ?>

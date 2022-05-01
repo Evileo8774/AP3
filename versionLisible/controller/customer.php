@@ -16,8 +16,13 @@
         unset($_SESSION["i"]);
     }
 
+    if(isset($_POST["submitSort"]) && !empty($_POST["customerSort"])){
+        $customers = getCustomersSort($_POST["customerSort"]);
+    }
+
     if(isset($_GET["client"])){
-        $_SESSION["i"] = ($_GET["client"] - 1);
+        $sortedCustomer = getCustomersSort($_GET["client"]);
+        $_SESSION["i"] = $sortedCustomer[0]["numClient"];
     }
 
     if(isset($_POST["submit"])){
@@ -31,11 +36,11 @@
         array_push($data, "dureeDeplacement", $_POST["time"]);
         array_push($data, "distanceKM", $_POST["dist"]);
         for($i = 0; $i < sizeof($data); $i += 2){
-            updateClient($data[$i], $data[$i+1], ($_SESSION["i"] + 1));
+            updateClient($data[$i], $data[$i+1], $_SESSION["i"]);
         }
         header("Refresh:0; url=?action=client");
     }
-
+    
     $title = "Gestion des Clients";
     include "$root/view/header.php";
     include "$root/view/viewCustomer.php";

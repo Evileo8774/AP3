@@ -39,28 +39,28 @@
                         Informations du client
                     </div>
                     <span>
-                        Nom : <input type="text" name="name" class="inputs" <?php echo "value='".$customers[$_SESSION["i"]]["raisonSociale"]."'"; ?> required/>
+                        Nom : <input type="text" name="name" class="inputs" <?php echo "value='".$sortedCustomer[0]["raisonSociale"]."'"; ?> required/>
                     </span>
                     <span>
-                        siren : <input type="text" name="siren" class="inputs" <?php echo "value='".$customers[$_SESSION["i"]]["siren"]."'"; ?> required/>
+                        siren : <input type="text" name="siren" class="inputs" <?php echo "value='".$sortedCustomer[0]["siren"]."'"; ?> required/>
                     </span>
                     <span>
-                        code ape : <input type="text" name="ape" class="inputs" <?php echo "value='".$customers[$_SESSION["i"]]["codeApe"]."'"; ?> required/>
+                        code ape : <input type="text" name="ape" class="inputs" <?php echo "value='".$sortedCustomer[0]["codeApe"]."'"; ?> required/>
                     </span>
                     <span>
-                        adresse : <input type="text" name="adresse" class="inputs" <?php echo "value='".$customers[$_SESSION["i"]]["adresse"]."'"; ?> required/>
+                        adresse : <input type="text" name="adresse" class="inputs" <?php echo "value='".$sortedCustomer[0]["adresse"]."'"; ?> required/>
                     </span>
                     <span>
-                        téléphone : <input type="text" name="tel" class="inputs" <?php echo "value='".$customers[$_SESSION["i"]]["tel"]."'"; ?> required/>
+                        téléphone : <input type="text" name="tel" class="inputs" <?php echo "value='".$sortedCustomer[0]["tel"]."'"; ?> required/>
                     </span>
                     <span>
-                        courriel : <input type="email" name="mail" class="inputs" <?php echo "value='".$customers[$_SESSION["i"]]["email"]."'"; ?> required/>
+                        courriel : <input type="email" name="mail" class="inputs" <?php echo "value='".$sortedCustomer[0]["email"]."'"; ?> required/>
                     </span>
                     <span>
-                        durée de déplacement : <input type="time" name="time" class="inputs" <?php echo "value='".$customers[$_SESSION["i"]]["dureeDeplacement"]."'"; ?> required/>
+                        durée de déplacement : <input type="time" name="time" class="inputs" <?php echo "value='".$sortedCustomer[0]["dureeDeplacement"]."'"; ?> required/>
                     </span>
                     <span>
-                        distance en KM : <input type="number" name="dist" class="inputs" <?php echo "value='".$customers[$_SESSION["i"]]["distanceKM"]."'"; ?> required/>
+                        distance en KM : <input type="number" name="dist" class="inputs" <?php echo "value='".$sortedCustomer[0]["distanceKM"]."'"; ?> required/>
                     </span>
                     <input type="submit" name="submit" class="submit" value="Confirmer les changements"/>
                 </form>
