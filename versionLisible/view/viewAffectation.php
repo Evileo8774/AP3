@@ -47,7 +47,6 @@
                     <input type="submit" name="submitUpdate" class="submit" value="Confirmer les changements"/>
                 </form>
                 <?php
-                var_dump($techniciens);
             }
             if(isset($_GET["create"])){
                 ?>

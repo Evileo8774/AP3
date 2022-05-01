@@ -105,8 +105,8 @@
     
         try {
             $pdo = connectionPDO();
-            $req = $pdo->prepare("SELECT technicien.nom, technicien.prenom, technicien.matricule FROM technicien, client, employe WHERE employe.agence = client.num AND technicien.matricule = employe.matricule");
-            $req->execute();
+            $req = $pdo->prepare("SELECT technicien.nom, technicien.prenom, technicien.matricule FROM technicien, client, employe WHERE employe.agence = client.num AND technicien.matricule = employe.matricule AND numClient = ?");
+            $req->execute([$num]);
     
             $line = $req->fetch(PDO::FETCH_ASSOC);
             while ($line) {

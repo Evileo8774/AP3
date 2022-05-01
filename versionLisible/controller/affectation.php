@@ -20,7 +20,7 @@
     if(isset($_GET["visite"])){
         $_SESSION["i"] = $_GET["visite"];
         $visiteAAffecter = getInterventionById($_GET["visite"]);
-        $techniciens = getTechniciensInAgenceOfClient($_SESSION["i"]);
+        $techniciens = getTechniciensInAgenceOfClient($visiteAAffecter["numClient"]);
     } else {
         $techniciens = getTechniciens();
     }
