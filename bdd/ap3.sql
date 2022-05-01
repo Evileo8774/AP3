@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 29 nov. 2021 à 13:53
--- Version du serveur :  5.7.31
--- Version de PHP : 7.3.21
+-- Généré le : dim. 01 mai 2022 à 07:11
+-- Version du serveur : 5.7.36
+-- Version de PHP : 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,14 +34,15 @@ CREATE TABLE IF NOT EXISTS `agence` (
   `adresse` varchar(100) NOT NULL,
   `tel` char(10) NOT NULL,
   PRIMARY KEY (`num`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `agence`
 --
 
 INSERT INTO `agence` (`num`, `nom`, `adresse`, `tel`) VALUES
-(1, 'Lille', '207 rue Anatole France, Lille, 59000', '0351525354');
+(1, 'Lille', '207 rue Anatole France, Lille, 59000', '0351525354'),
+(2, 'Marseille', '1 rue de la liberté', '0812121212');
 
 -- --------------------------------------------------------
 
@@ -63,14 +64,16 @@ CREATE TABLE IF NOT EXISTS `client` (
   `num` int(11) NOT NULL,
   PRIMARY KEY (`numClient`),
   KEY `client_agence_FK` (`num`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `client`
 --
 
 INSERT INTO `client` (`numClient`, `raisonSociale`, `siren`, `codeApe`, `adresse`, `tel`, `email`, `dureeDeplacement`, `distanceKM`, `num`) VALUES
-(1, 'Vitalito', '359400782', '4569B', '27 Place Marc Seguin, Lille, 59800', '0633333333', 'user@vitalito.xyz', '00:30:00', 7, 1);
+(1, 'Vitalito', '12345678A', 'A1234', '1 Rue des Sables, Caillouel', '0606060606', 'vitalito@gmail.com', '01:30:00', 100, 1),
+(2, 'Karmineeeee', '11111111A', 'A1111', '10 rue des muguets, Lille', '1111111111', 'karmina@korpa.com', '00:45:00', 30, 1),
+(3, 'Marsouille', '11111151A', 'A1112', 'Stage Vélodrome, Marseille', '0812121213', 'marsouille@om.com', '00:10:00', 9, 2);
 
 -- --------------------------------------------------------
 
@@ -126,16 +129,46 @@ CREATE TABLE IF NOT EXISTS `employe` (
   `prenom` varchar(50) NOT NULL,
   `adresse` varchar(100) NOT NULL,
   `dateEmbauche` date NOT NULL,
-  PRIMARY KEY (`matricule`)
+  `mdp` varchar(100) NOT NULL,
+  `agence` int(11) NOT NULL,
+  PRIMARY KEY (`matricule`),
+  KEY `agence` (`agence`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `employe`
 --
 
-INSERT INTO `employe` (`matricule`, `nom`, `prenom`, `adresse`, `dateEmbauche`) VALUES
-('CPL0104201', 'Perrin', 'Claudine', '969 Rue du N, Lille, 59800', '2020-04-01'),
-('JVL1012191', 'Valjean', 'Jean', '28 Rue Dupuytren, Lille, 59800', '2019-12-10');
+INSERT INTO `employe` (`matricule`, `nom`, `prenom`, `adresse`, `dateEmbauche`, `mdp`, `agence`) VALUES
+('CPL0104201', 'Perrin', 'Claudine', '969 Rue du N, Lille, 59800', '2020-04-01', '7fed5d2eb677f1763acb5676edce4b9add6a8e405373386470a423141c8872da', 1),
+('JVL1012191', 'Valjean', 'Jean', '28 Rue Dupuytren, Lille, 59800', '2019-12-10', '2f3436192600097fc102cac50360e72a59384efcfd2d5b04fcbf330581198eee', 1),
+('test', 'test', 'test', 'test', '2022-04-05', '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08', 2),
+('test2', 'test2', 'test2', 'test2@gmail.com', '2022-04-28', '60303ae22b998861bce3b28f33eec1be758a213c86c93c076dbe9f558c11c752', 1);
+
+--
+-- Déclencheurs `employe`
+--
+DROP TRIGGER IF EXISTS `before_insert_employe`;
+DELIMITER $$
+CREATE TRIGGER `before_insert_employe` BEFORE INSERT ON `employe` FOR EACH ROW BEGIN
+
+SET new.mdp = SHA2(new.mdp, 256);
+
+END
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS `before_update_employe`;
+DELIMITER $$
+CREATE TRIGGER `before_update_employe` BEFORE UPDATE ON `employe` FOR EACH ROW BEGIN
+
+IF(SHA2(new.mdp, 256) <> SHA2(old.mdp, 256))
+THEN
+SET new.mdp = SHA2(new.mdp, 256);
+END IF;
+
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -146,21 +179,25 @@ INSERT INTO `employe` (`matricule`, `nom`, `prenom`, `adresse`, `dateEmbauche`) 
 DROP TABLE IF EXISTS `intervention`;
 CREATE TABLE IF NOT EXISTS `intervention` (
   `num` int(11) NOT NULL AUTO_INCREMENT,
-  `dateVisite` date NOT NULL,
-  `heureVisite` time NOT NULL,
+  `dateVisite` date DEFAULT NULL,
+  `heureVisite` time DEFAULT NULL,
   `numClient` int(11) NOT NULL,
-  `matricule` varchar(10) NOT NULL,
+  `matricule` varchar(10) DEFAULT NULL,
+  `faite` char(3) NOT NULL,
   PRIMARY KEY (`num`),
   KEY `numClient` (`numClient`,`matricule`),
   KEY `intervention_technicien0_FK` (`matricule`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `intervention`
 --
 
-INSERT INTO `intervention` (`num`, `dateVisite`, `heureVisite`, `numClient`, `matricule`) VALUES
-(1, '2021-12-06', '14:48:00', 1, 'JVL1012191');
+INSERT INTO `intervention` (`num`, `dateVisite`, `heureVisite`, `numClient`, `matricule`, `faite`) VALUES
+(1, '2021-12-09', '20:52:00', 1, 'JVL1012191', 'non'),
+(2, '2022-04-28', '20:19:00', 2, 'JVL1012191', 'non'),
+(4, '2022-05-12', '14:30:00', 2, 'JVL1012191', 'non'),
+(5, '2022-05-19', '09:09:00', 3, NULL, 'non');
 
 -- --------------------------------------------------------
 
@@ -215,7 +252,8 @@ CREATE TABLE IF NOT EXISTS `technicien` (
 --
 
 INSERT INTO `technicien` (`matricule`, `tel`, `qualification`, `dateObtention`, `nom`, `prenom`, `adresse`, `dateEmbauche`, `num`) VALUES
-('JVL1012191', '0617273747', 'Diplômé du BTP de l\'école PoudreLard', '2018-09-12', 'Valjean', 'Jean', '28 Rue Dupuytren, Lille, 59800', '2019-12-10', 1);
+('JVL1012191', '0617273747', 'Diplômé du BTP de l\'école PoudreLard', '2018-09-12', 'Valjean', 'Jean', '28 Rue Dupuytren, Lille, 59800', '2019-12-10', 1),
+('test', '1111111111', 'ezrferfg', '2022-04-07', 'test', 'test', 'test', '2022-04-07', 1);
 
 -- --------------------------------------------------------
 
@@ -281,6 +319,12 @@ ALTER TABLE `contratmaintenance`
 ALTER TABLE `controler`
   ADD CONSTRAINT `controler_intervention0_FK` FOREIGN KEY (`num`) REFERENCES `intervention` (`num`),
   ADD CONSTRAINT `controler_materiel_FK` FOREIGN KEY (`numSerie`) REFERENCES `materiel` (`numSerie`);
+
+--
+-- Contraintes pour la table `employe`
+--
+ALTER TABLE `employe`
+  ADD CONSTRAINT `agence_FK` FOREIGN KEY (`agence`) REFERENCES `agence` (`num`);
 
 --
 -- Contraintes pour la table `intervention`
