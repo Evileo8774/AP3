@@ -1,0 +1,15 @@
+.pageContent{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin-top: 3%;
+}
+
+.quarter{
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

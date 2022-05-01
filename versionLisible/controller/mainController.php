@@ -7,7 +7,7 @@
         $actions["login"] = "login.php";
         $actions["home"] = "home.php";
         $actions["visite"] = "affectation.php";
-        $actions["outil"] = "home.php";
+        $actions["outil"] = "tool.php";
         $actions["client"] = "customer.php";
         $actions["intervention"] = "intervention.php";
         $actions["logout"] = "logout.php";
