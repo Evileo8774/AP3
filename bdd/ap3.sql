@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 01 mai 2022 à 07:11
+-- Généré le : dim. 01 mai 2022 à 15:51
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -71,8 +71,8 @@ CREATE TABLE IF NOT EXISTS `client` (
 --
 
 INSERT INTO `client` (`numClient`, `raisonSociale`, `siren`, `codeApe`, `adresse`, `tel`, `email`, `dureeDeplacement`, `distanceKM`, `num`) VALUES
-(1, 'Vitalito', '12345678A', 'A1234', '1 Rue des Sables, Caillouel', '0606060606', 'vitalito@gmail.com', '01:30:00', 100, 1),
-(2, 'Karmineeeee', '11111111A', 'A1111', '10 rue des muguets, Lille', '1111111111', 'karmina@korpa.com', '00:45:00', 30, 1),
+(1, 'Karmine', '11111111A', 'A1111', '10 rue des muguets, Lille', '1111111122', 'karmina@korpa.com', '00:50:00', 30, 1),
+(2, 'Vitalithé', '11145111A', 'A1172', 'Avenue Gaston Berger, Lille', '0812121212', 'vithalithe@vitalithe.com', '00:45:00', 30, 1),
 (3, 'Marsouille', '11111151A', 'A1112', 'Stage Vélodrome, Marseille', '0812121213', 'marsouille@om.com', '00:10:00', 9, 2);
 
 -- --------------------------------------------------------
@@ -114,6 +114,8 @@ CREATE TABLE IF NOT EXISTS `controler` (
 --
 
 INSERT INTO `controler` (`numSerie`, `num`, `tempsPasse`, `commentaire`) VALUES
+('61654685', 2, '01:30:00', 'Oui'),
+('616548', 5, '16:22:00', 'Tout est en ordre'),
 ('73AA10', 1, '00:45:00', '*insérer commentaires*');
 
 -- --------------------------------------------------------
@@ -194,10 +196,9 @@ CREATE TABLE IF NOT EXISTS `intervention` (
 --
 
 INSERT INTO `intervention` (`num`, `dateVisite`, `heureVisite`, `numClient`, `matricule`, `faite`) VALUES
-(1, '2021-12-09', '20:52:00', 1, 'JVL1012191', 'non'),
-(2, '2022-04-28', '20:19:00', 2, 'JVL1012191', 'non'),
-(4, '2022-05-12', '14:30:00', 2, 'JVL1012191', 'non'),
-(5, '2022-05-19', '09:09:00', 3, NULL, 'non');
+(1, '2021-12-10', '20:00:00', 1, 'JVL1012191', 'non'),
+(2, '2022-04-28', '20:19:00', 2, 'JVL1012191', 'oui'),
+(5, '2022-05-19', '09:09:00', 3, 'test', 'oui');
 
 -- --------------------------------------------------------
 
@@ -224,6 +225,8 @@ CREATE TABLE IF NOT EXISTS `materiel` (
 --
 
 INSERT INTO `materiel` (`numSerie`, `dateVente`, `dateInstall`, `prixVente`, `emplacement`, `ref`, `numClient`) VALUES
+('61654685', '2022-05-01', '2022-05-02', 564, 'qrgqrg', 'CE001', 2),
+('616548', '2022-05-11', '2022-05-13', 564, 'qrgqrg', 'CE001', 3),
 ('73AA10', '2021-11-01', '2021-11-07', 599.99, 'carton 4', 'CE001', 1);
 
 -- --------------------------------------------------------
