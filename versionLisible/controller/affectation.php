@@ -11,21 +11,34 @@
     include_once "$root/model/db.affectation.inc.php";
 
     $visitesNonAffectees = getVisitesNonAffectees();
+    $clients = getClients();
 
-    if(!isset($_GET["client"]) && !isset($_POST["submit"]) && isset($_SESSION["i"])){
+    if(!isset($_GET["visite"]) && !isset($_POST["submitUpdate"]) && !isset($_POST["submitCreate"]) && isset($_SESSION["i"])){
         unset($_SESSION["i"]);
     }
 
-    if(isset($_GET["client"])){
-        $_SESSION["i"] = ($_GET["client"] - 1);
+    if(isset($_GET["visite"])){
+        $_SESSION["i"] = $_GET["visite"];
+        $visiteAAffecter = getInterventionById($_GET["visite"]);
+        $techniciens = getTechniciensInAgenceOfClient($_SESSION["i"]);
+    } else {
+        $techniciens = getTechniciens();
     }
 
-    if(isset($_POST["submit"])){
+    if(isset($_POST["submitCreate"])){
         $data = array();
-        array_push($data, $_POST["numClient"], $_POST["dateVisite"], $_POST["heureVisite"], $_POST["technicien"]);
-        for($i = 0; $i < sizeof($data); $i++){
-            createIntervention($data);
+        array_push($data, $_POST["dateVisite"], ($_POST["heureVisite"].":00"), $_POST["raisonSociale"]);
+        createIntervention($data);
+        header("Refresh:0; url=?action=visite");
+    }
+
+    if(isset($_POST["submitUpdate"])){
+        if(empty($_POST["matricule"])){
+            $_POST["matricule"] = NULL;
         }
+        $data = array();
+        array_push($data, $_POST["dateVisite"], $_POST["heureVisite"], $_POST["matricule"]);
+        updateIntervention($data, $_SESSION["i"]);
         header("Refresh:0; url=?action=visite");
     }
 
