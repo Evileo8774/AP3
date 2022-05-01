@@ -87,4 +87,24 @@
         return $result;
     }
 
+    function getInterventionSort($interventionNum){
+        $result = array();
+    
+        try {
+            $pdo = connectionPDO();
+            $req = $pdo->prepare("SELECT client.raisonSociale, client.adresse, intervention.*, CURRENT_DATE AS dateDuJour from client, intervention where intervention.dateVisite = ? and intervention.numClient = client.numClient and faite = 'non'");
+            $req->execute([$interventionNum]);
+    
+            $line = $req->fetch(PDO::FETCH_ASSOC);
+            while ($line) {
+                $result[] = $line;
+                $line = $req->fetch(PDO::FETCH_ASSOC);
+            }
+        } catch (PDOException $e) {
+            print "Error : " . $e->getMessage();
+            die();
+        }
+        return $result;
+    }
+
 ?>

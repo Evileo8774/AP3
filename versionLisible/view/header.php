@@ -45,6 +45,13 @@ if(isset($_SESSION["matricule"])){
                             <input type="submit" name="submitSort" value="Chercher"/>
                         </form>
                         <?php
+                    } else if(isset($intervention)){
+                        ?>
+                        <form method="post" action="./?action=intervention">
+                            <input type="text" name="interventionSort" placeholder="Chercher une intervention" list="interventions"/>
+                            <input type="submit" name="submitSort" value="Chercher"/>
+                        </form>
+                        <?php
                     }
                 ?>
             </div>
@@ -63,6 +70,12 @@ if(isset($customers)){
     echo "<datalist id='customers'>";
     for($i = 0; $i < sizeof($customers); $i++){
         echo "<option value='".$customers[$i]["numClient"]."'>".$customers[$i]["raisonSociale"]."</option>";
+    }
+    echo "</datalist>";
+} else if(isset($intervention)){
+    echo "<datalist id='interventions'>";
+    for($i = 0; $i < sizeof($intervention); $i++){
+        echo "<option>".$intervention[$i]["dateVisite"]."</option>";
     }
     echo "</datalist>";
 }

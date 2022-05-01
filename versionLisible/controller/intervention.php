@@ -16,6 +16,10 @@
         unset($_SESSION["i"]);
     }
 
+    if(isset($_POST["submitSort"]) && !empty($_POST["interventionSort"])){
+        $intervention = getInterventionSort($_POST["interventionSort"]);
+    }
+
     if(isset($_GET["modif"])){
         $interventionIndex = getInterventionById($_GET["intervention"]);
         $_SESSION["i"] = $interventionIndex["num"];

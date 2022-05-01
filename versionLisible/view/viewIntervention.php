@@ -8,7 +8,7 @@
 
     <div class="pageContent">
         <?php
-            for($i = 0; $i<count($intervention); $i++){
+            for($i = 0; $i<sizeof($intervention); $i++){
             ?>
             <div class="interventionSheet">
                 <div class="interventionData">
