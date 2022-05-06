@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 01 mai 2022 à 15:51
+-- Généré le : ven. 06 mai 2022 à 13:51
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -85,13 +85,35 @@ DROP TABLE IF EXISTS `contratmaintenance`;
 CREATE TABLE IF NOT EXISTS `contratmaintenance` (
   `numContrat` int(11) NOT NULL AUTO_INCREMENT,
   `dateSignature` date NOT NULL,
-  `dateEcheance` date NOT NULL,
+  `dateEcheance` date DEFAULT NULL,
   `numClient` int(11) NOT NULL,
   `ref` varchar(10) NOT NULL,
   PRIMARY KEY (`numContrat`),
   UNIQUE KEY `contratMaintenance_client_AK` (`numClient`),
   KEY `contratMaintenance_typeContrat0_FK` (`ref`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `contratmaintenance`
+--
+
+INSERT INTO `contratmaintenance` (`numContrat`, `dateSignature`, `dateEcheance`, `numClient`, `ref`) VALUES
+(1, '2022-05-04', '2023-05-05', 1, 'arrzea3773'),
+(2, '2022-05-06', '2023-05-06', 3, 'arrzea3773'),
+(3, '2022-05-02', '2023-05-02', 2, 'arrzea3773');
+
+--
+-- Déclencheurs `contratmaintenance`
+--
+DROP TRIGGER IF EXISTS `before_insert_contratmaintenance`;
+DELIMITER $$
+CREATE TRIGGER `before_insert_contratmaintenance` BEFORE INSERT ON `contratmaintenance` FOR EACH ROW BEGIN
+
+SET new.dateEcheance = DATE_ADD(new.dateSignature, INTERVAL 1 YEAR);
+
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
