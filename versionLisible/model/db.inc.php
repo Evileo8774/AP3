@@ -1,8 +1,8 @@
 <?php
 
     function connectionPDO() {
-        $login = "root";
-        $mdp = "";
+        $login = "defaultUser";
+        $mdp = "g4e5h4er5g";
         $bd = "ap3";
         $serveur = "localhost";
 
