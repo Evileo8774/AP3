@@ -27,7 +27,7 @@
     
         try {
             $pdo = connectionPDO();
-            $req = $pdo->prepare("SELECT * from intervention where num = ? AND faite = 'non'");
+            $req = $pdo->prepare("SELECT intervention.*, client.raisonSociale, client.adresse from intervention, client where intervention.num = ? AND faite = 'non' AND intervention.numClient = client.numClient");
             $req->execute([$num]);
     
             $result = $req->fetch(PDO::FETCH_ASSOC);

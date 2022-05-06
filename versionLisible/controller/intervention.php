@@ -1,4 +1,5 @@
 <?php
+    
 
     if(!isset($_SESSION)){
         session_start();
@@ -18,6 +19,17 @@
 
     if(isset($_POST["submitSort"]) && !empty($_POST["interventionSort"])){
         $intervention = getInterventionSort($_POST["interventionSort"]);
+    }
+
+    if(isset($_GET["fiche"])){
+        $interventionIndex = getInterventionById($_GET["fiche"]);
+
+        $_SESSION["dateVisite"] = $interventionIndex["dateVisite"];
+        $_SESSION["heureVisite"] = $interventionIndex["heureVisite"];
+        $_SESSION["raisonSociale"] = $interventionIndex["raisonSociale"];
+        $_SESSION["adresse"] = $interventionIndex["adresse"];
+        include_once "generatePDF.php";
+
     }
 
     if(isset($_GET["modif"])){
