@@ -1,80 +1,165 @@
-body{
-    margin: 0;
+.pageContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 3%;
 }
 
-nav{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 5%;
-    background: #CFB17A;
+.interventionSheet{
+    width: 80%;
+    height: 200px;
+
+    background-color: #D2F1FF;
+    box-shadow: 0px 0px 15px #D2F1FF;
 
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+
+    font-size: 150%;
+
+    margin-top: 50px;
 }
 
-.iconeMenu{
-    width: 4vh;
-    height: 4vh;
-    border-radius: 5px;
-    margin-right: 2vw;
+.interventionData{
+    height: 200px;
+
+    margin-left: 10%;
+
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
+    justify-content: space-evenly;
 }
 
-.material-icons{
-    transform: scale(1.5);
+.button{
+
+    width: 90%;
+
+    background-color: #75D4FF;
+    box-shadow: 0px 0px 0px #75D4FF;
+    
     text-decoration: none;
     color: black;
+
+    margin-top: 15px;
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 0;
+    transform: scale(0);
 }
 
-.iconeMenu:hover{
-    cursor: pointer;
+.button2{
+
+    width: 90%;
+
+    background-color: #75D4FF;
+    box-shadow: 0px 0px 0px #75D4FF;
+    
+    text-decoration: none;
+    color: black;
+
+    margin-top: 15px;
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.btn_sort{
-    height: 4vh;
-    background: #F3D191;
-    border: 0;
-}
+.modifyIntervention{
+    position: absolute;
 
-.btn_sort:hover{
-    background: #CFB17A;
-}
+    /*margin-top: 10%;*/
 
-.nomPage{
-    margin-left: 2vw;
-    font-size: 35px;
-}
+    z-index: 100;
 
-.content{
-    margin-top: 7%;
+    width: 60%;
+    height: 700px;
+    
+    background-color: #75D4FF;
+    box-shadow: 0px 0px 30px #75D4FF;
+
     display: flex;
     flex-direction: column;
-}
-
-.affect{
-    display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    background-color: #F3D191;
-    height: 5vh;
-    width: 100vw;
+    justify-content: space-evenly;
 }
 
-.btn_affect{
+.modifyIntervention div, .modifyIntervention span{
+    font-size: 200%;
+}
+
+.inputs{
+    width: 400px;
+    height: 40px;
+
+    font-size: 80%;
+}
+
+.submit{
+
+    width: 30%;
+
+    background-color: #D2F1FF;
+    box-shadow: 0px 0px 0px #D2F1FF;
+    
+    text-decoration: none;
+    color: black;
+
+    margin-top: 30px;
+    padding: 10px;
+
     border: 0;
-    background: #CFB17A;
-    height: 5vh;
+
+    font-size: 200%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.btn_affect:hover{
-    cursor: default;
+/* HOVER events */  
+
+.interventionSheet:hover{
+    height: 400px;
+    transition-duration: 0.5s;
+}
+
+.interventionSheet:hover .button{
+    transform: scale(1);
+    height: auto;
+    transition-duration: 0.5s;
+}
+
+.button:hover{
+    color: white;
+    box-shadow: 0px 0px 15px #75D4FF;
+    transition-duration: 0.5s;
+}
+
+.button2:hover{
+    color: white;
+    box-shadow: 0px 0px 15px #75D4FF;
+    transition-duration: 0.5s;
+}
+
+.submit:hover{
+    box-shadow: 0px 0px 15px #D2F1FF;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.interventionSheet:not(:hover), 
+.interventionSheet:not(:hover) .button,
+.interventionSheet:not(:hover) .button2,
+.interventionSheet:not(:hover) .submit,
+.submit:not(:hover),
+.button:not(:hover){
+    transition-duration: 0.5s;
 }

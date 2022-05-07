@@ -1,20 +1,14 @@
 <?php
-include "getRacine.php";
-include "$racine/controleur/controleurPrincipal.php";
-include_once "$racine/modele/authentification.inc.php"; // pour pouvoir utiliser isLoggedOn()
+    include "getRoot.php";
+    include "$root/controller/mainController.php";
+    include_once "$root/model/auth.inc.php";
 
+    if(isset($_GET["action"])){
+        $action = $_GET["action"];
+    } else {
+        $action = "default";
+    }
 
-
-if (isset($_GET["action"])){
-    $action = $_GET["action"];
-}
-else{
-
-    $action = "defaut";
-}
-
-$fichier = controleurPrincipal($action);
-include "$racine/controleur/$fichier";
-
-
+    $file = mainController($action);
+    include "$root/controller/$file";
 ?>
