@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<repertoire>
+    <nserie Numero="61654685">
+        <dateVente>2022-05-01</dateVente>
+        <dateInstallation>2022-05-02</dateInstallation>
+        <numeroContrat>3</numeroContrat>
+        <dateSignatureContrat>2022-05-02</dateSignatureContrat>
+        <dateEcheanceContrat>2023-05-02</dateEcheanceContrat>
+        <refContrat>CE001</refContrat>
+        <raisonSociale>Vitalithé</raisonSociale>
+    </nserie>
+</repertoire>
