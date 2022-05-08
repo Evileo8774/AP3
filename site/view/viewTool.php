@@ -10,6 +10,11 @@
             <h3>Mois sélectionné</h3>
             <form method="post" action="./?action=outil">
                 <input type="month" name="monthPick" <?php if(isset($month)) echo "value='".$year."-".$month."'";?>/>
+                <select name="tech">
+                    <?php
+                        for($i = 0; $i < sizeof($techniciens); $i++) echo "<option value='".$techniciens[$i]["matricule"]."'>".$techniciens[$i]["nom"]." ".$techniciens[$i]["prenom"]."</option>";
+                    ?>
+                </select>
                 <input type="submit" value="trier"/><br>
             </form>
         </div>
